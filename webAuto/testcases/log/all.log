@@ -1,0 +1,15 @@
+2020-10-30 21:37:51,928-INFO-测试用户登录
+2020-10-30 21:37:52,006-DEBUG-输入用户名： 
+2020-10-30 21:37:52,089-DEBUG-输入密码： 12345
+2020-10-30 21:37:52,161-DEBUG-点击登陆
+2020-10-30 21:37:57,326-DEBUG-输入用户名： lyqtiffany
+2020-10-30 21:37:57,442-DEBUG-输入密码： lyq1994811
+2020-10-30 21:37:57,479-DEBUG-点击登陆
+2020-10-30 21:38:06,845-ERROR-报错 登录
+Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\pythonLearnFrist\webAuto\testcases\log\test_user_login.py", line 69, in test_user_login_ok
+    assert self.driver.title == expected + "dd"
+AssertionError: assert '用户中心' == '用户中心dd'
+  - 用户中心dd
+  ?     --
+  + 用户中心

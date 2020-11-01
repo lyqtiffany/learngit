@@ -1,0 +1,8 @@
+2020-10-30 21:38:06,845-ERROR-test_user_login.py[:71]-报错 登录
+Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\pythonLearnFrist\webAuto\testcases\log\test_user_login.py", line 69, in test_user_login_ok
+    assert self.driver.title == expected + "dd"
+AssertionError: assert '用户中心' == '用户中心dd'
+  - 用户中心dd
+  ?     --
+  + 用户中心

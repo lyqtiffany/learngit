@@ -1,0 +1,7 @@
+#50 输出一个随机数。
+
+import random
+
+# 生成 10 到 20 之间的随机数
+print(random.uniform(10, 20)) #生成浮点数
+print(random.randint(10,20)) #生成整数
