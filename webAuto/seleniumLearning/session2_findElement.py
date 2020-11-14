@@ -18,7 +18,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 
 
-class TestCase(object):
+class TestCase(object): #css_selector比xpath快
     def __init__(self):
         self.driver = webdriver.Chrome() # from .chrome.webdriver import WebDriver as Chrome #
         self.driver.get('https://www.baidu.com')
@@ -52,7 +52,7 @@ class TestCase(object):
         self.driver.find_element_by_partial_link_text('首页').click()
         sleep(3)
 
-    def test_xpath(self):
+    def test_xpath(self):  #css_selector比xpath快
         #F12识别元素后，直接选中元素行右键，copy--copy xpath,粘贴到xpath下
         #//是相对路径,需要再了解下xpath的具体语法
         self.driver.find_element_by_xpath('//*[@id="kw"]').send_keys('极客时间')
@@ -60,10 +60,11 @@ class TestCase(object):
         sleep(3)
 
     def test_tag(self):
+        #有多个input tag, 可以通过下标来指定
         input = self.driver.find_element_by_tag_name('input')[0] #list下标0
         print(input)
 
-    def test_css_selector(self):
+    def test_css_selector(self): #css_selector比xpath快
         #课后补充，识别元素后右键，copy copy selector
         self.driver.find_element_by_css_selector('#kw').send_keys('极客时间')
         self.driver.find_element_by_id('su').click()

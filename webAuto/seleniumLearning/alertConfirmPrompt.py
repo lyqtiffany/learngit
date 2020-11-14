@@ -49,9 +49,9 @@ class TestCase(object):
 
 if __name__ == '__main__':
     case = TestCase()
-    # case.test_alert()
+    case.test_alert()
     # case.test_confirm()
-    case.test_prompt()
+    # case.test_prompt()
     case.driver.quit()
 
 

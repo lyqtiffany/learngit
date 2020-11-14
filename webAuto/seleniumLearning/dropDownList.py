@@ -15,7 +15,7 @@ class TestCase(object):
 
     def test_dropdownlist(self):
         se = self.driver.find_element_by_id('province') #下拉列表默认选择第一个
-        select = Select(se)
+        select = Select(se)  #Select 某个webElement
         # select.select_by_index(2) #select 3rd item
         #
         # sleep(2)

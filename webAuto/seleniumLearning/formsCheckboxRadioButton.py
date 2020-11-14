@@ -6,7 +6,7 @@ class TestCase(object):
     def __init__(self):
         self.driver = webdriver.Chrome()
         path = os.path.dirname(os.path.abspath(__file__))
-        file_path = 'file:///' + path + '/forms2.html'
+        file_path = 'file:///' + path + '/forms2.html'  #本地文件
         print(file_path)
         self.driver.get(file_path)
 

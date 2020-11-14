@@ -25,14 +25,13 @@ class TestCase(object):
         e.send_keys('hello world')
         sleep(2)
 
-
         print(e.get_attribute('type')) #text类型
         print(e.get_attribute('name'))
         print(e.get_attribute('value')) #取到文本内容hello world
         print(e.value_of_css_property('color')) #颜色
 
         sleep(2)
-        e.clear()
+        e.clear() #清空
     def test_method2(self):
         #form表单也有定位元素的方法
         form_element = self.driver.find_element_by_xpath('/html/body/form[1]')

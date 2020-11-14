@@ -29,3 +29,5 @@ tupleY[:]# 最前面的元素到最后的元素
 
 print(tupleY[1:], tupleY[:])
 
+tuplex = (1, 'x', (1, 2), [55, 56], {'name': 'bob', 'age': 30})
+print(tuplex)
