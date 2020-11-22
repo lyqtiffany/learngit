@@ -47,7 +47,7 @@ class TestAdminLogin(unittest.TestCase):
 
         self.driver.quit()
 
-    def test_admin_login_ok(self):
+    def No_run_test_admin_login_ok(self):
         username = 'lyqtiffany'
         pwd = 'lyq1994811'
         expected = 'JPress后台'
@@ -65,4 +65,5 @@ class TestAdminLogin(unittest.TestCase):
 
         self.driver.quit()
 
-
+if __name__ == '__main__': #unittest,在此处执行用例
+    unittest.main()

@@ -11,115 +11,37 @@ import pytest
 
 from webAuto.testcases.unittest.test_user_login import TestUserLogin
 
-# class TestWriteArticle(object):
-#     def __init__(self, method, login):
-#         unittest.TestCase.__init__(self, method)
-#         self.login = login
-#
-#     def test_add_article_error(self):
-#         title = ''
-#         body = ''
-#         expected = '标题不能为空'
-#
-#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click() #点击我的文章
-#         sleep(1)
-#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[2]/a').click() #点击投稿
-#
-#         self.login.driver.find_element_by_name('article.title').send_keys(title)  # 输入文章标题
-#         self.login.driver.find_element_by_xpath('/html').send_keys(body)
-#         self.login.driver.find_element_by_id('submit').click()
-#
-#         loc = (By.CLASS_NAME, 'toast-message')
-#         WebDriverWait(self.login.driver, 5).until(EC.visibility_of_all_elements_located(loc))  # 验证弹框出现
-#         msg = self.login.driver.find_element(*loc).text
-#         sleep(3)
-#
-#         assert msg == expected
-#
-#     def test_add_article_pass(self):
-#         title = 'test001我的文章'
-#         body = 'test001我的文章内容'
-#         expected = '文章保存成功。'
-#
-#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click() #点击我的文章
-#         sleep(1)
-#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[2]/a').click() #点击投稿
-#
-#         self.login.driver.find_element_by_name('article.title').send_keys(title)  # 输入文章标题
-#
-#         #切入iframe
-#         sleep(2)
-#         frame1 = self.login.driver.find_element_by_xpath('//*[@id="cke_1_contents"]/iframe')
-#
-#         self.login.driver.switch_to.frame(frame1)
-#         sleep(2)
-#
-#         self.login.driver.find_element_by_xpath('/html/body').send_keys(body)
-#         # 切出frame
-#         self.login.driver.switch_to.default_content()
-#
-#         sleep(2)
-#         self.login.driver.find_element_by_id('submit').click()
-#
-#
-#         loc = (By.CLASS_NAME, 'toast-message')
-#         WebDriverWait(self.login.driver, 5).until(EC.visibility_of_element_located(loc))  # 验证弹框出现
-#         msg = self.login.driver.find_element(*loc).text
-#         sleep(3)
-#
-#         assert msg == expected
-#
-#     def test_delete_article_pass(self):
-#         expected = '确定要删除该文章吗？删除后不可恢复'
-#
-#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[1]/a').click()  # 点击文章列表
-#         article = self.login.driver.find_element_by_xpath('/html/body/div/div/section[2]/div/div/div/div[2]/table/tbody/tr[2]/td[1]/strong/a')
-#         ActionChains(self.login.driver).move_to_element(article).perform()
-#
-#         sleep(1)
-#
-#         #删除前文章数
-#         article_num = len(self.login.driver.find_elements_by_class_name('jp-actiontr'))
-#         print(article_num)
-#
-#         del_elem = self.login.driver.find_element_by_xpath('/html/body/div/div/section[2]/div/div/div/div[2]/table/tbody/tr[2]/td[1]/div/div/a[2]')
-#         del_elem.click()
-#
-#         sleep(1)
-#         #等待提示框
-#         WebDriverWait(self.login.driver, 5).until(EC.alert_is_present()) #验证弹框出现
-#         alert = self.login.driver.switch_to.alert
-#
-#         sleep(3)
-#         #验证
-#         assert alert.text == expected
-#         alert.accept()
-#
-#         #删除后文章数
-#         sleep(3)
-#         article_num2 = len(self.login.driver.find_elements_by_class_name('jp-actiontr'))
-#         print(article_num2)
-#
-#         assert article_num == article_num2 + 1
-# if __name__ == '__main__':
-#     testArticle = TestWriteArticle()
-#     testArticle.test_add_article_pass()
+class TestWriteArticle(unittest.TestCase): #写文章的用例，依赖登陆方法
+    def __init__(self, method, login): #setUpClass 没办法传参，所以这里继续用init方法
+        unittest.TestCase.__init__(self, method )
+        self.login = login #这里的Login是管理员登陆的Login，如果要改成user login怎么做?
 
+    def test_add_article_error(self):
+        title = ''
+        body = ''
+        expected = '标题不能为空'
 
-class TestArticle(object): #发表文章没有执行，是为什么呢？
+        self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click() #点击我的文章
+        sleep(1)
+        self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[2]/a').click() #点击投稿
 
-    article_data = [
-        ('我的文章', '我的文章内容', '文章保存成功。')
-    ]
+        self.login.driver.find_element_by_name('article.title').send_keys(title)  # 输入文章标题
+        self.login.driver.find_element_by_xpath('/html').send_keys(body)
+        self.login.driver.find_element_by_id('submit').click()
 
-    def setup_class(self):
-        self.login = TestUserLogin()
+        loc = (By.CLASS_NAME, 'toast-message')
+        WebDriverWait(self.login.driver, 5).until(EC.visibility_of_all_elements_located(loc))  # 验证弹框出现
+        msg = self.login.driver.find_element(*loc).text
+        sleep(3)
 
-    @pytest.mark.dependency(depends=['user_login'], scope='module')
-    @pytest.mark.parametrize('title, content, expected', article_data)
+        assert msg == expected
 
-    def test_add_ok(self, title, content, expected):
-        self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click()  # 点击我的文章
+    def test_add_article_pass(self):
+        title = 'test001我的文章'
+        body = 'test001我的文章内容'
+        expected = '文章保存成功。'
+
+        self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click() #点击我的文章
         sleep(1)
         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[2]/a').click() #点击投稿
 
@@ -146,7 +68,97 @@ class TestArticle(object): #发表文章没有执行，是为什么呢？
         sleep(3)
 
         assert msg == expected
+
+    def test_delete_article_pass(self):
+        expected = '确定要删除该文章吗？删除后不可恢复'
+
+        self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[1]/a').click()  # 点击文章列表
+        article = self.login.driver.find_element_by_xpath('/html/body/div/div/section[2]/div/div/div/div[2]/table/tbody/tr[2]/td[1]/strong/a')
+        ActionChains(self.login.driver).move_to_element(article).perform()
+
         sleep(1)
 
+        #删除前文章数
+        article_num = len(self.login.driver.find_elements_by_class_name('jp-actiontr'))
+        print(article_num)
+
+        del_elem = self.login.driver.find_element_by_xpath('/html/body/div/div/section[2]/div/div/div/div[2]/table/tbody/tr[2]/td[1]/div/div/a[2]')
+        del_elem.click()
+
+        sleep(1)
+        #等待提示框
+        WebDriverWait(self.login.driver, 5).until(EC.alert_is_present()) #验证弹框出现
+        alert = self.login.driver.switch_to.alert
+
+        sleep(3)
+        #验证
+        assert alert.text == expected
+        alert.accept()
+
+        #删除后文章数
+        sleep(3)
+        article_num2 = len(self.login.driver.find_elements_by_class_name('jp-actiontr'))
+        print(article_num2)
+
+        assert article_num == article_num2 + 1
+
+    def runTest(self):
+        self.test_add_article_error()
+        self.test_add_article_pass()
+        self.test_delete_article_pass()
+
 if __name__ == '__main__':
-    pytest.main(['test_write_article.py'])
+    login = TestUserLogin()  # 用户登陆后才能发布文章
+    login.test_user_login_ok()
+    #AttributeError: 'TestUserLogin' object has no attribute 'driver'?????/
+    sleep(8)
+
+    testArticle = TestWriteArticle(login)  #文章投稿，输入文章内容处，定位有问题，需要继续调试解决
+    testArticle.test_add_article_error()
+
+
+
+# class TestArticle(object): #发表文章没有执行，是为什么呢？
+#
+#     article_data = [
+#         ('我的文章', '我的文章内容', '文章保存成功。')
+#     ]
+#
+#     def setup_class(self):
+#         self.login = TestUserLogin()
+#
+#     @pytest.mark.dependency(depends=['user_login'], scope='module')
+#     @pytest.mark.parametrize('title, content, expected', article_data)
+#
+#     def test_add_ok(self, title, content, expected):
+#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/a').click()  # 点击我的文章
+#         sleep(1)
+#         self.login.driver.find_element_by_xpath('//*[@id="sidebar-menu"]/li[4]/ul/li[2]/a').click() #点击投稿
+#
+#         self.login.driver.find_element_by_name('article.title').send_keys(title)  # 输入文章标题
+#
+#         #切入iframe
+#         sleep(2)
+#         frame1 = self.login.driver.find_element_by_xpath('//*[@id="cke_1_contents"]/iframe')
+#
+#         self.login.driver.switch_to.frame(frame1)
+#         sleep(2)
+#
+#         self.login.driver.find_element_by_xpath('/html/body').send_keys(body)
+#         # 切出frame
+#         self.login.driver.switch_to.default_content()
+#
+#         sleep(2)
+#         self.login.driver.find_element_by_id('submit').click()
+#
+#
+#         loc = (By.CLASS_NAME, 'toast-message')
+#         WebDriverWait(self.login.driver, 5).until(EC.visibility_of_element_located(loc))  # 验证弹框出现
+#         msg = self.login.driver.find_element(*loc).text
+#         sleep(3)
+#
+#         assert msg == expected
+#         sleep(1)
+#
+# if __name__ == '__main__':
+#     pytest.main(['test_write_article.py'])

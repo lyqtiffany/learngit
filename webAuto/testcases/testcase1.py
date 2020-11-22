@@ -1,15 +1,15 @@
 import os
 
 
-def test1():
-    print('test1')
+# def test1():
+#     print('test1')
 import time
 from selenium import webdriver
 from time import sleep
 import pyautogui
-from PIL import Image
+from PIL import Image  #PIL 需要pip install PIL
 import requests
-import pytesseract
+import pytesseract  #pytesseract 需要 pip install pytesseract
 
 #命令终端安装PyAutoFUI   pip install, 在元素不能选中时，通过x,y坐标来点击
 
@@ -18,7 +18,7 @@ def testXY():
     driver.get('http://jpress.io/user/register') #打开首页
     driver.maximize_window()
     sleep(1)
-    elem = driver.find_element_by_id('agree') # 同意的button只能通过xy 坐标点击，需要安装导入pytest
+    elem = driver.find_element_by_id('agree') # 注册页面，同意的button只能通过xy 坐标点击，需要安装导入pytest
     print(elem.rect)
     rect = elem.rect
     sleep(1)
@@ -27,7 +27,7 @@ def testXY():
     pyautogui.click()
     sleep(3)
 
-def yanzheng():
+def yanzheng(): #'http://jpress.io/user/register'注册页面的验证码小图，截取
     # 验证码，使用pytesseract模块和PIL模块解决
     #安装 pip install  pytesseract    pip install pil
     #网页验证码解决思路：截屏整个页面，获得验证码坐标数据，根据坐标数据抠图，使用pytesseract模块进行验证
@@ -56,12 +56,14 @@ def yanzheng():
     img.save(picture_name2)#这里就是截取到的验证码图片
     browser.close()
 
-def getStringYanZheng(): #就可以验证简单的验证码
-    # path = os.path.dirname(os.path.abspath(__file__)) #tf try
-    # file_path = 'file:///' + path + 'test.png'
-    # image1 = Image.open(file_path)
+def getStringYanZheng(): #验证简单的验证码或者通过第三方api识别验证码
 
-    #image1 = Image.open('test.png') #打开第一步扣出的验证码部分的图片
+    ##验证老师举例的简单验证码图片
+    # path = os.path.dirname(os.path.abspath(__file__)) #tf try
+    # file_path = 'file:///' + path + 'test.png'  #验证老师举例的简单验证码图片
+    # image1 = Image.open(file_path)
+    #
+    # image1 = Image.open('test.png') #打开第一步扣出的验证码部分的图片
     # str = pytesseract.image_to_string(image1)
     # print(str)#就可以验证简单的验证码，只是加了些点，没有横竖线干扰的那种
 

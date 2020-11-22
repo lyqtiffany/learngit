@@ -16,8 +16,9 @@
 import unittest
 from selenium import webdriver
 
+#快捷键，ctrl+O, 快速覆盖unittest里面的方法
 
-class MyTestCase01(unittest.TestCase):
+class MyTestCase01(unittest.TestCase): # case需要继承unittest.TestCase
 
     @classmethod  #类方法setup # 整个类，它运行一次，
     def setUpClass(cls) -> None:
@@ -62,7 +63,7 @@ if __name__ == '__main__':
 #setup    tear down分为类方法和实例方法
 # 整个类，它运行一次，
 # 实例方法，每次运行实例方法的时候，它都会运行
-# 执行顺序：setupClass-setUp-testA-tearDown-setUp-testB-tearDown-tearDownclass 0-9 A-z a-z
+# 执行顺序：setupClass-setUp-testA-tearDown-setUp-testB-tearDown-tearDownClass 0-9 A-z a-z
 #断言方法，assertEqual, assertIn....
 
 

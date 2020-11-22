@@ -1,5 +1,5 @@
 '''
-pytest参数化处理
+pytest参数化处理，比如登陆页面的用户名密码，就有4种组合，适合一条用例，执行几种不同的数据
 在pytest中，也可以使用参数化测试，即每组参数都独立执行一次测试
 使用的工具就是pytest.mark.parametrize(argnames, argvalues).
 '''
@@ -62,7 +62,7 @@ def add(a, b):
 
 class TestParametrize(object): #可以单独运行这个class
 
-    @pytest.mark.parametrize('a, b, expected', data_1)
+    @pytest.mark.parametrize('a, b, expected', data_1) #从data_1取参数
     def test_parametrize_1(self, a, b, expected):
         assert add(a, b) == expected
 

@@ -8,7 +8,7 @@ from webAuto.util import util
 from time import sleep
 
 class TestWriteArticle(object):
-    def __init__(self, login):
+    def __init__(self, login): # # 用户登陆后才能发布文章
         self.login = login
 
     def test_add_article_error(self):

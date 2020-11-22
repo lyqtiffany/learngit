@@ -7,7 +7,7 @@ body = {}
 timeouts = {}
 resHeader = {}
 
-class ShowapiRequest:
+class ShowapiRequest: # 万维易源来识别http://jpress.io/user/register'注册页面的图片验证码时用到
     def __init__(self, url, my_appId, my_appSecret):
         self.url = url
         self.my_appId = my_appId

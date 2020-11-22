@@ -31,25 +31,33 @@ class MyTestCase04(unittest.TestCase):
         print('test04')
 
 
-if __name__ == '__main__':
-    loader = unittest.TestLoader() #加载器
+if __name__ == '__main__': #执行时需要加载器，测试套件，运行器
+    loader = unittest.TestLoader() #加载器加载测试用例
     suite = unittest.TestSuite() #测试套件
 
     # 方法一 通过测试用例名字加载到套件
-    # suite.addTest(loader.loadTestsFromTestCase(MyTestCase03))
-    # suite.addTest(loader.loadTestsFromTestCase(MyTestCase04))
+    suite.addTest(loader.loadTestsFromTestCase(MyTestCase03))
+    suite.addTest(loader.loadTestsFromTestCase(MyTestCase04))
 
     # 方法二 通过测试用例模板去加载到套件
     # suite.addTest(loader.loadTestsFromModule(MyTestCase03))
     # suite.addTest(loader.loadTestsFromModule(MyTestCase04))
 
     #方法三 #推荐  通过路径加载当前文件所在路径下的
-    import os
-    path = os.path.dirname(os.path.abspath(__file__))
-    suite.addTest(loader.discover(path))
+    # import os
+    # path = os.path.dirname(os.path.abspath(__file__))
+    # suite.addTest(loader.discover(path))
 
+    #运行器
     runner = unittest.TextTestRunner() #运行器
     runner.run(suite)
+
+    #方法四：逐条加载测试用例 low
+    # case1 = MyTestCase03("test01")
+    # case2 = MyTestCase03("test02")
+    # suite.addTest(case1)
+    # suite.addTest(case2)
+
 
 
 #setup    tear down分为类方法和实例方法

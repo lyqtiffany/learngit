@@ -13,12 +13,11 @@ import logging
 import logging.handlers
 import datetime
 
-def get_code(driver, id): #识别图片的验证码
+def get_code(driver, id): #识别图片的验证码里面包含的字符
 
     st = strftime("%Y-%m-%d-%H-%M-%S", localtime(time()))  # 截图时间戳命名
-
     #获取验证码图片
-    #t = time.time()
+    # t = time.time()
     x = os.path.dirname(__file__) # C:\Users\Administrator\PycharmProjects\pythonLearnFrist\webAuto\util
     print(x) #当前文件util.py所在的路径
 
@@ -41,12 +40,12 @@ def get_code(driver, id): #识别图片的验证码
     # print(dpr)
     # im = Image.open(picture_name1)
     # img = im.crop((left*dpr, top*dpr, right*dpr, height*dpr)) 不同分辨率抠图
-    #
+
 
     im = Image.open(picture_name1)
     img = im.crop((left, top, right, height)) #抠图取得验证码的小图
 
-    #t = time.time()
+    # t = time.time()
     st = strftime("%Y-%m-%d-%H-%M-%S", localtime(time()))  # 截图时间戳命名
 
     picture_name2 = path + '\\' + str(st) + '.png'
@@ -68,7 +67,6 @@ def get_code(driver, id): #识别图片的验证码
     return code
 
 def get_logger():
-
 
     logger = logging.getLogger('mylogger')
     logger.setLevel(logging.DEBUG)
@@ -92,13 +90,13 @@ def gen_random_str(): #生成随机字符串，数字加字母
     rand_str = ''.join(random.sample(string.ascii_letters + string.digits, 8))
     return rand_str
 
-def save_cookie(driver, path):
+def save_cookie(driver, path): #保存cookie
     with open(path, 'wb') as filehandler:
         cookies = driver.get_cookies()
         print(cookies)
         pickle.dump(cookies, filehandler)
 
-def load_cookie(driver, path):
+def load_cookie(driver, path):  #加载cookie
     with open(path, 'rb') as cookiesfile:
         cookies = pickle.load(cookiesfile)
         for cookie in cookies:

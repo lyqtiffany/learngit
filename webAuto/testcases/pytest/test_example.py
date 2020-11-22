@@ -3,7 +3,7 @@
 '''
 编写规则，
 测试文件用test开头(use test结尾也可以)，
-测试类用test开头，并且不能带有init方法
+测试类用Test开头，并且不能带有init方法
 测试函数以test开头
 断言使用基本的assect即可
 '''
@@ -14,13 +14,13 @@ class TestLoginCase(object): #测试类用test开头，并且不能带有init方
     # def __init__(self): 不能定义Init方法
 
     def test01(self): #测试函数以test开头
-        print('test01')
-        assert 1 ==1
-        self.add()
+        print('test01hhh')
+        assert 1 == 1
+
 
     @pytest.mark.undo
     def test02(self): #测试函数以test开头
-        print('test02')
+        print('test02d')
         assert 1 == 1  #asert 1 = 2
 
     def add(self): #不需要执行的用例，直接不用test开头或者结尾命名
@@ -28,7 +28,7 @@ class TestLoginCase(object): #测试类用test开头，并且不能带有init方
 
     @pytest.mark.do
     def test03(self): #测试函数以test开头
-        print('test03')
+        print('test03 result')
         #asert 1 = 2
 
 if __name__ == '__main__':
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 执行pytest测试，
 配置pycharm执行：settings->tools->python integrated tools -> default test runner
 main方法执行: pytest.main(['-vs', 'test_example.py'])
-命令行 pytest -s -v test.py #cd 到webAuto/testcases/pytest
+命令行执行，进入到项目所在目录: pytest -s -v test.py #cd 到webAuto/testcases/pytest
 '''
 
 
@@ -58,9 +58,9 @@ pytest查找测试策略：默认会递归查找当前目录下所有用test开�
 标记测试函数：
 由于某种原因，比如test_func2的功能尚未完成，我们只想执行指定的测试函数。pytest中有几种方式可以解决
 第一种： 显示指定函数名，通过::标记
-test_no_mark.py::test_func1  #在test_no_mark.py文件里面只执行test_func1
+test_no_mark.py::test_func1  #在test_no_mark.py文件里面只执行test_func1 (命令行执行)
 第二种，使用模糊匹配，使用 -k 选项标识
-pytest -k func1 test_no_mark.py  #在test_no_mark.py文件里面只执行func1(模糊匹配可以找到test_func1)
+pytest -k func1 test_no_mark.py  #在test_no_mark.py文件里面只执行func1(模糊匹配可以找到test_func1)  (命令行执行)
 第三种，使用配置文件，pytest.mark在函数是进行标记
 需要创建pytest.ini文件
 格式
@@ -68,7 +68,7 @@ pytest -k func1 test_no_mark.py  #在test_no_mark.py文件里面只执行func1(�
 markers = 
     do:do
     undo:undo
-在用例上打标记， pytest -m do test_example.py 在命令行执行
+在用例上打标记， pytest -m do test_example.py 在命令行执行，这样只运行标记为do的文件
 '''
 
 '''

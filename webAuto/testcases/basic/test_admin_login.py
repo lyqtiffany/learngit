@@ -8,7 +8,7 @@ from webAuto.util import util
 
 #http://jpress.io/admin/login
 
-class TestAdminLogin(object):
+class TestAdminLogin(object):  #测试管理员登陆
     def __init__(self):
         self.driver = webdriver.Chrome()
         self.driver.get('http://jpress.io/admin/login')
@@ -47,7 +47,9 @@ class TestAdminLogin(object):
 
         self.driver.find_element_by_name('user').send_keys(username)#输入用户名
         self.driver.find_element_by_name('pwd').send_keys(pwd)#输入密码
+
         captcha = util.get_code(self.driver, 'captchaImg')
+
         self.driver.find_element_by_name('captcha').send_keys(captcha)
         self.driver.find_element_by_xpath('//*[@id="form"]/div[4]/div/button').click() #点击登陆
 

@@ -45,10 +45,10 @@ https://chromedriver.storage.googleapis.com/index.html
 #
 
 
-import re
-f = ('aabbadhbcb')
-test_str = ('aabbadhbcb')
-print(re.sub('[ab]','',f))
-
-str=test_str.replace('ab', '')
-print(str)
+# import re
+# f = ('aabbadhbcb')
+# test_str = ('aabbadhbcb')
+# print(re.sub('[ab]','',f))
+#
+# str=test_str.replace('ab', '')
+# print(str)
