@@ -14,6 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import pyautogui
 from webAuto.util import util
+import pytest
 
 #http://jpress.io/user/register
 
@@ -59,7 +60,7 @@ class TestUserRegister(object):
         sleep(5)
         # self.driver.quit()
 
-    def test_register_pass(self):
+    def no_run_test_register_pass(self):
         username = util.gen_random_str()
         email = username + '@qq.com'
         pwd = '123456'
@@ -104,6 +105,5 @@ class TestUserRegister(object):
 
 
 if __name__ == '__main__':
-    case = TestUserRegister()
-    case.test_register_code_error()
-    case.test_register_pass()
+    pytest.main(['test_user_register.py'])
+

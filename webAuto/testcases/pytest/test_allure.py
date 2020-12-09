@@ -1,6 +1,5 @@
 #pip install allure-pytest
 #下载解压，配置到环境变量 https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.7.0/
-#!!!还没有下载完成
 
 import allure
 import pytest
@@ -34,8 +33,8 @@ class TestEditPage():
 
 if __name__ == '__main__':
     #注意生成测试报告，必须在命令行执行
-    #terminal 进入到python项目级别
-    #pytest --alluredir ./report test_allure.py
+    #terminal 进入到python项目级别,报告生成在项目的reports目录下
+    #pytest --alluredir ./reports test_allure.py
     #allure serve ./reports 启动allure查看报告,执行
 
     #目录\pythonLearnFrist\webAuto>pytest --alluredir ./reports testcases/pytest/test_allure.py

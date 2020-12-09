@@ -38,10 +38,17 @@
 #需求，用户输入手机号，移动(130-150)，联通(151-170)，电信(171-199)
 #输入位数不对，提示用户位数错误
 #输入非数字，提示有非法字符，
+#isdigit()方法只有string字符串方法可以用
+#变量名的命名尽量规范，文件名的命名也尽量规范
+#可以考虑灵活的定义变量
+#注意Str和int的区别，input函数默认返回str, isdigit这个方法是字符串的方法，只有str型的对象可以用
+#学会自己排查代码问题，在代码中最好加上详细的注释
+#代码的顺序也应该考虑清楚，尽量做到先判断大类别，再判断小类别
+
 
 phoneNumber = input('please input a phone number')
-if len(phoneNumber) == 11:
-    if phoneNumber.isdigit():
+if phoneNumber.isdigit():
+    if len(phoneNumber) == 11:
         num = int(phoneNumber[0:3])
         if 130 <= num <= 150:
             print('移动号码:', phoneNumber)
@@ -52,9 +59,9 @@ if len(phoneNumber) == 11:
         else:
             print('电话号码不属于三大运营商: ', phoneNumber)
     else:
-        print('only numeric character allowed')
+        print('please input the phone number for 11 digits')
 else:
-    print('please input the phone number for 11 digits')
+    print('only numeric character allowed')
 
 
 
