@@ -2,6 +2,7 @@ from day7XinBao.utils.mysettings import URL,password,username
 # from day7.utils.mysettings import driverpath, URL,password,username
 from selenium import webdriver
 
+#add
 
 class Driver:
     _driver=None
