@@ -2,6 +2,8 @@ mm = '''危楼高百尺，   #时候需要换行的情况
 手可摘星辰
  '''
 # print(mm)
+#三引号，可以表达字符串中的换行符，制表符等
+
 
 #字符串的拼接
 a1 = 'h1'
@@ -84,7 +86,7 @@ list2 = [10, 20, 30, 40, 50]
 list2.extend([123]) #list2 and [123]拼接 #[10, 20, 66, 30, 40, 50, 60, 77, 123]
 # print(list2)
 
-# list2.extend('123') #会将'123'拆分成['1', '2', '3'],再拼接到list2的最后面
+list2.extend('123') #会将'123'拆分成['1', '2', '3'],再拼接到list2的最后面
 # print(list2)
 
 #列表的删除
@@ -130,9 +132,88 @@ list3 = [11, 22, 33, 44, 55, 66]
 # tuple3 = (113, )
 # print(type(tuple3)) #tuple只有一个值时，需要加逗号来确定是元组
 
-tuple1 = (100,)
-print(type(100,))
-print(type((100,)))
-print(type(tuple1))
+# tuple1 = (100,)
+# print(type(100,))
+# print(type((100,)))
+# print(type(tuple1))
 
+
+#斐波那契数列
+# 1,1,2,3,5,8,13,21,34,55
+# list1 = []
+# for i in range(20):
+#     if len(list1) < 2:
+#         list1.append(1)
+#     else:
+#         list1.append(list1[-2]+list1[-1])
+# print(list1)
+#
+# tupleD = (1, (2, 3))
+# print(tupleD)
+
+# import time
+# for i in range(10, -1, -1):
+#     if i != 0:
+#         print('\r', f'倒计时{i}秒', end='', flush=True)
+#         time.sleep(1)
+#         #\r 光标回到行首
+#         #end = '' 每次print之后不换行
+#     else:
+#         print('\r', '倒计时结束')
+
+import math
+#
+# print(int(5.6)) #5 向下取整 #
+# print(round(5.66)) # 6 向上取整
+# print(math.ceil(4.85))  # 5向上取整
+
+info = 'name is tom'
+# print(info[8:10]) #to
+# print(info[-1:-4]) #空
+# print(info[8:-1]) #to
+# print(info[-3:]) #tom
+
+# print('a'.join(info)) #naaamaea aiasa ataoam
+# print(info.index('m',10))
+
+st5 = 'agcadssadjkl'
+print(st5.index('a',3))
+# print(st5.find('x')) #find通过元素找索引，可切片，找不到报错，index，找不到返回-1
+# print(st5.startswith('a')) #startswith 判断以什么为开头，endswith 判断以什么为结尾返回的是布尔量。
+
+
+
+#7、find()通过元素找索引,可以整体找,可以切片,找不到则返回-1
+# str = "hi Alex"
+# print(str.find('l'))          #4
+# print(str.find('Alex'))       #3
+# print(str.find('i',1,4))      #1
+# print(str.find('L'))          #-1
+#
+# #8、index()通过元素找索引,可以整体找,可以切片,找不到会报错
+# str = "hi Alex"
+# print(str.index('x'))   #6
+
+# with open('d:/pythonCourse/file1.txt') as file1:
+#     # print(file1.readlines()) # 返回列表
+#     # print(file1.read()) #返回str
+#     print(file1.read().splitlines()) #返回列表
+
+# print(int("5"))
+# print(float(6))
+
+
+# for i in range(1, 6):
+#     if i % 3 == 0:
+#         break
+#     else:
+#         print(i, end=',')
+
+
+# str1 = "Runoob example....wow!!!"
+# str2 = "exam"
+# print(str1.find(str2, 4))
+#
+# dict1 = {}
+# dict2 = {('sad', 5):456}
 

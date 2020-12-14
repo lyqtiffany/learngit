@@ -11,14 +11,14 @@ str1 = 'abcadebf'
 #如果只想显示.代表的字符，怎么办？ . 的外面加括号
 # print(re.findall('ab(.)', str1)) #['c']
 
-#  *表示匹配某个字符后面的若干个字符  0到多个，也包括0个
+#  * 匹配0个或多个的表达式。 表示匹配某个字符后面的若干个字符  0到多个，也包括0个
 # print(re.findall('ab*', str1)) #匹配a后面有若干个b #str1 = 'abcadebf'   ['ab', 'a']
 # print(re.findall('a(b*)', str1))  #括号表示匹配a后面有若干个b, 匹配到的内容['b', '']
 
-# ?表示匹配某个字符后面有0个或者1个字符,最多匹配一个
+# ? 匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式 表示匹配某个字符后面有0个或者1个字符,最多匹配一个
 # print(re.findall('ab?', str1)) #匹配a后面有0个或者1个b   str1 = 'abbcadebf'  ['ab', 'a']
 
-# +表示a后面有若干个b,不包括0个的情况
+# + 匹配1个或多个的表达式。表示a后面有若干个b,不包括0个的情况
 # print(re.findall('ab+', str1))  #匹配a后面有1个或者多个b  str1 = 'abcadebf'  ['ab']
 
 
@@ -83,3 +83,10 @@ sdffworld'''
 
 # print(re.findall('hello(.*?)world', a, re.S)) #['gervdc\nsdff']
 # print(re.findall('hello(.*?)world', a)) #[]
+
+str1 = '<html>a="asfsdf"</html>'
+print(re.findall('<html>a="(.*)"', str1))
+# A: <html>a=”（.+？）”</html> 正常匹配出a里面的字符
+# B. <html>a=”（.+）”</html> 正常匹配出a里面的字符
+# C. <html>a=”（.*？）”</html> 正常匹配出a里面的字符
+# D. <html>a=”（.*）”正常匹配出a里面的字符

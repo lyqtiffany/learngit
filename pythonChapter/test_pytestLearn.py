@@ -65,9 +65,9 @@ class Test2:
 
 
 if __name__ == '__main__':
-    pytest.main(['test_pytestLearn.py', '-s', '--alluredir', '../report'])
-    os.system('allure generate ../report -o ../report/report --clean')
-    os.system('allure server ../report')
+    # pytest.main(['test_pytestLearn.py', '-s', '--alluredir', '../report'])
+    # os.system('allure generate ../report -o ../report/report --clean')
+    #有时候没有生成report文件夹，需要把pycharm->file->setting->python integrated tool - >default test runner->改成Unittests
 
 
     # pytest.main(['--alluredir', '../reportA', 'test_pytestLearn.py'])
@@ -80,7 +80,11 @@ if __name__ == '__main__':
 #基本命令结构：allure generate 测试数据位置  -o 报告生成位置
 
 #思考题，写一个函数，可以计算某数的阶乘，最好不用循环语句
-
+    def fun1(n):
+        if n <= 1:
+            return n
+        else:
+            return n*fun1(n-1)
 
 
 
