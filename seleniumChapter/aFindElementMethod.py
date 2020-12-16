@@ -28,7 +28,7 @@ ele = driver.find_element_by_partial_link_text('点击进入')#部分匹配
 ele.click()'''
 
 '''#根据class属性进行定位,只返回找到的第一个元素，如果要找多个，需要find_elements
-ele = driver.find_element_by_class_name('xyz')
+ele = driver.find_element_by_class_name('xyz') #多个class属性html有空格隔开,但是定位只用其中一个
 print(ele.text)'''
 
 #根据xpath进行元素定位,xpath从1 开始
