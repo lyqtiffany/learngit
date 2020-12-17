@@ -4,7 +4,7 @@ from selenium import webdriver
 #如果driver路径添加到了环境变量，就不用写driver路径了。
 driver = webdriver.Chrome()
 #访问网址
-driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/test.html')
+driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/atest.html')
 
 '''#匹配元素列表，返回所有能匹配到的元素，存在一个列表里面
 eleLi = driver.find_elements_by_class_name('xyz')

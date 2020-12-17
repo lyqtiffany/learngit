@@ -4,7 +4,7 @@ from selenium import webdriver
 #如果driver路径添加到了环境变量，就不用写driver路径了。
 driver = webdriver.Chrome()
 #访问网址
-driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/test.html')
+driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/atest.html')
 
 #根据ID属性进行定位
 ele = driver.find_element_by_id('abc')
