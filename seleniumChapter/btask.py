@@ -26,17 +26,17 @@ driver.maximize_window()
 '''
 
 category = driver.find_elements_by_xpath("//ol[@class=\"category-list\"]/li")
-for first_Cate in category:
-    first_Category = first_Cate.text #获取每个大类的标题，比如手机，笔记本，平板等
-    print(f"一级菜单： {first_Category}")  #打印一级菜单的内容
+# for first_Cate in category:
+#     #获取每个大类的标题，比如手机，笔记本，平板等
+#     print(f"一级菜单： {first_Cate.text}")  #打印一级菜单的内容
 
-    ActionChains(driver).move_to_element(first_Cate).perform() #鼠标悬停到一级菜单
-
-    sec_category = first_Cate.find_elements_by_xpath(".//ul[@class=\"subcate-list clearfix\"]/li[@class=\"subcate-item\"]")
-
-    for sed_Cate in sec_category:
-        second_category = sed_Cate.text
-        print(f"\t{second_category}")  #打印二级菜单的选项
+    # ActionChains(driver).move_to_element(first_Cate).perform() #鼠标悬停到一级菜单
+    #
+    # sec_category = first_Cate.find_elements_by_xpath(".//ul[@class=\"subcate-list clearfix\"]/li[@class=\"subcate-item\"]")
+    #
+    # for sed_Cate in sec_category:
+    #     second_category = sed_Cate.text
+    #     print(f"\t{second_category}")  #打印二级菜单的选项
 
 
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -49,18 +49,15 @@ driver.execute_script("window.scrollBy(0,9000)") #滚动页面
 #热销单品，精品推荐，手机等大分类
 ele = driver.find_elements_by_xpath("//div[@class=\"h\"]/h2")
 
-
 #热销单品里面没有爆款，所以扩大范围了。
 eles = driver.find_elements(By.XPATH, '//li[@class="grid-items"]')
 hot_eles = driver.find_elements(By.XPATH, '//li[@class="grid-items"]//p[@class="grid-tips"]')
 
-for k in eles and hot_eles:
+for k in hot_eles:
     if k.text == '爆款':
-        name = k.find_element(By.XPATH, '//li[@class="grid-items"]//div[@class="grid-title"]').text
-        price = k.find_element(By.XPATH, '//li[@class="grid-items"]//p[@class="grid-price"]').text
+        name = k.find_element(By.XPATH, './../div[@class="grid-title"]').text
+        price = k.find_element(By.XPATH, './../p[@class="grid-price"]').text
         print(f'爆款： {name}， 价格: {price}')
-
-
 
 # driver.quit()
 
