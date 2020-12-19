@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*style标签是用来改样式的，一般统一放在style里面*/
+
+        /*id 选择器，选中具有特定id的HTML元素*/
+        /*css中的id选择器用#来定义*/
+        #abc {color: #0044bb}
+
+        /*class 选择器，选择具有特定class属性的HTML元素,可能匹配到多个*/
+        /*i在css当中，class选择器用.来定义*/
+        .xyz {color: #cc0000}
+
+        <!-- 标签选择器，选中特定类型的HTML元素-->
+        <!-- 标签选择器，直接就是标签的名称-->
+        p {
+            font-size: 20px
+        }
+
+        <!-- 分组选择器，可以选中一组HTML元素-->
+        <!-- 在css当中，分组选择器用,来定义-->
+        a, span {background: #51a7e8}
+
+        /*属性选择器，选取具有特定属性的html元素*/
+        /*在css中，属性选择器用[]来定义*/
+        [class = "li"] {color: #cc0000}
+        /*我们也可以不为属性指定值,选择所有具有title属性的标签*/
+        [title] {background : #4e4e4e}
+        /*属性选择器也可以指定标签*/
+        a[title] {font-size: 20px}
+        /*属性选择器也可以匹配单词边界*/
+        a[title~="hello"] {background : #cc0000}
+
+
+    </style>
+</head>
+<body>
+<p id='abc'> #p段落标签，结尾自带换行 </p>
+<a name='abd'> 天南地北, #a标签不会换行, br标签可以换行</a>
+<br>
+<a href = 'https://www.baidu.com'>点击进入百度</a>
+<br>
+<span>人道海水深，不抵相思半</span>
+<span class="xyz">无意苦争春，一任群芳妒</span>
+<div>
+    <ul>
+        <li class="li">驿外断桥边</li>
+        <li class="li">寂寞开无主</li>
+        <li class="li">已是黄昏独自愁</li>
+    </ul>
+</div>
+<p title = "a1">春秋的</p>
+<p title = "a2">冬天的</p>
+<a title>日日思君</a>
+<span class="hello world">小时不识月</span>
+<br>
+<a title="hello test selenium">忽左忽悠</a>
+</body>
+</html>

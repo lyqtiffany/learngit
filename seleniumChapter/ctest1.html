@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*组合选择符*/
+        /*css当中有四种组合方式*/
+            /*后代选择器（用空格分隔）*/
+            /*子元素选择器（用大于号分隔）*/
+            /*相邻兄弟选择器（用加号分隔）*/
+            /*后续兄弟选择器（用小波浪线分隔）*/
+
+        /*后代选择器，用于选取某元素的后代元素，无论层级有多深*/
+        #ab1 p  {color:#cc0000}   /*选取id是ab1的后代元素中的p*/
+
+        /*子元素选择器（用大于号分隔）, 跟后代选择器相比，子元素选择器只能直接选中子元素，只要儿子，不要其他后代*/
+         #ab1 > p {background: #51a7e8}
+
+         /*相邻兄弟选择器（用加号分隔）,可以选择紧挨在另一元素之后的元素，且二者拥有相同的父元素,只匹配年纪最大的弟弟*/
+         /*如果使用相邻选择器，定位的元素是老二，那使用相邻的话，会定位老大还是老三,答案是老三*/
+         #xyz + .hello {color:yellow}
+         #xyz + li {background : black}
+
+         /*后续兄弟选择器（用小波浪线分隔）,选取指定元素之后的所有弟弟*/
+         #xyzz ~ li {color:blue}
+    </style>
+</head>
+<body>
+<ul id="abc1">
+    <li id ="xyz">羽洁何曾洁</li>
+    <li class = "hello">运控卫避开</li>
+    <li class = "hello">可怜金玉在</li>
+    <li>重陷淖泥中</li>
+</ul>
+<ul id="abc2">
+    <li id ="xyzz">老夫聊发少年狂</li>
+    <li >左牵黄</li>
+    <li >右擎苍</li>
+    <li>锦帽貂裘千骑卷平岗</li>
+</ul>
+<div id = "ab1">
+    <ul>
+        <li>玉带林中挂</li>
+        <li>金钗雪里埋</li>
+    </ul>
+    <div>
+        <p>一丛二令三人木</p>
+        <div>
+            <p>可叹停机德</p>
+            <p>堪怜咏絮才</p>
+        </div>
+    </div>
+    <p>仔细中山狼</p>
+</div>
+</body>
+</html>
