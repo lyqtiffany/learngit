@@ -15,6 +15,12 @@ css的规则由两部分构成：选择器，以及1条或者多条声明
  #abc {color: #0044bb}
 
  ：nth-child（1）是css的下标
+
+ # css复合的写法，不用写.开头， 单写组合选择符必须前面有元素
+ #driver.get('http://www.51job.com') #访问网址
+ #job= driver.find_element_by_css_selector('div.j_joblist div.e')
+ #直接从job处开始找
+ #job_title = job.find_element_by_css_selector('span[class="jname at"]')
 '''
 
 import time
@@ -25,5 +31,5 @@ driver = webdriver.Chrome()
 #右键html文件，copy，copy path,绝对路径，然后粘贴到浏览器访问，在浏览器拷贝地址
 driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/ctest.html') #访问网址
 
-ele = driver.find_element_by_css_selector('#abc')
+ele = driver.find_element_by_css_selector('#abc') #id=abc的元素
 print(ele.text)

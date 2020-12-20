@@ -10,6 +10,7 @@ driver.maximize_window()
 #为什么一级菜单，不定位到li,也能打印出一级菜单？
 '''
 category = driver.find_elements_by_xpath('//ol[@class="category-list"]')
-for first_Cate in category:
-    #获取每个大类的标题，比如手机，笔记本，平板等
-    print(f"一级菜单： {first_Cate.text}")  #打印一级菜单的内容
+
+# css复合的写法，不用写.开头， 单写组合选择符必须前面有元素
+
+

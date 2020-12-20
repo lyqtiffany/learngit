@@ -44,6 +44,8 @@ driver.maximize_window()
 
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 # .send_keys(Keys.END)
+# window.scrollTo(0,10000)指定滑动的像素
+# window.scrollTo(0,document.body.scrollHeight)滑动到页面底部
 
 driver.execute_script("window.scrollBy(0,500)") #滚动页面
 time.sleep(1)
@@ -53,6 +55,7 @@ driver.execute_script("window.scrollBy(0,9000)") #滚动页面
 ele = driver.find_elements_by_css_selector("div.h h2")
 
 # #热销单品里面没有爆款，所以扩大范围了。
+#通常只能获取到浏览器当前看到的内容，但是selenium有一定的穿透性，所以有时候，前面的也可以获取到
 eles = driver.find_elements(By.CSS_SELECTOR, 'li[class="grid-items"]')
 hot_eles = driver.find_elements(By.CSS_SELECTOR, 'li[class="grid-items"] p[class="grid-tips"]')
 

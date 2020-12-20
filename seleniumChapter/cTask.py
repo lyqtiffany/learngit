@@ -41,7 +41,7 @@ pre_city = WebDriverWait(driver, 3, 0.5).until(
     )
 )
 pre_city.click()
-# pre_city = driver.find_element_by_css_selector('div#work_position_click_multiple_selected > span >em')
+#driver.find_element_by_css_selector('div#work_position_click_multiple_selected > span').click()
 
 #选择杭州
 driver.find_element_by_id('work_position_click_center_right_list_category_000000_080200').click()
@@ -76,19 +76,27 @@ job_list = WebDriverWait(driver, 3, 0.5).until(
         (By.CSS_SELECTOR, "div.j_joblist div.e")
     )
 )
+#job_list = driver.find_elements_by_css_selector('div.j_joblist div.e')
 
 # Python开发工程师 | 杭州纳帕科技有限公司 | 杭州 | 0.8-1.6万/月 | 04-27
 for job in job_list:
-    job_title = job.find_element_by_xpath('./a/p/span[1]')
+    # job_title = job.find_element_by_xpath('./a/p/span[1]')
+    job_title = job.find_element_by_css_selector('span[class="jname at"]')
 
-
-    company = job.find_element_by_xpath('./div[@class="er"]/a[@class="cname at"]')
-    salary = job.find_element_by_xpath('.//p[@class="info"]/span[@class="sal"]')
-    location_info = job.find_element_by_xpath('.//p[@class="info"]/span[@class="d at"]')
+    company = job.find_element_by_css_selector('a[class="cname at"]')
+    salary = job.find_element_by_css_selector('span[class="sal"]')
+    location_info = job.find_element_by_css_selector('span[class="d at"]')
     location = location_info.text.split('|')[0].strip()
 
     people_num = job.find_element_by_xpath('./div[@class="er"]/p[@class="dc at"]')
     people_num = people_num.text.split('|')[-1].strip()
-    print(f'{job_title.text} | {company.text}  | {location} | {salary.text} | {people_num}')
+
+    job_time = job.find_element_by_css_selector('span[class="time"]') #发布时间
+
+    print(f'{job_title.text} | {company.text}  | {location} | {salary.text} | {people_num} |{job_time.text[:-2]}')
 
 driver.quit()
+
+
+
+
