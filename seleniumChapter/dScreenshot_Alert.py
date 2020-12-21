@@ -3,15 +3,15 @@ import time
 from selenium import webdriver
 driver = webdriver.Chrome()
 
-# driver.get("http://www.baidu.com")
+driver.get("http://www.baidu.com")
 
-# #截取整个页面
-# driver.get_screenshot_as_file("./dall.png") #保存到当前路径，格式官方建议png
-# #截取单个元素
-# ele = driver.find_element_by_id("kw")
-# ele.screenshot("./dele.png")
+#截取整个页面
+driver.get_screenshot_as_file("./dall.png") #保存到当前路径，格式官方建议png
+#截取单个元素
+ele = driver.find_element_by_id("kw")
+ele.screenshot("./dele.png")
 
-driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/dalert.html')
+#driver.get('file:///C:/Users/Administrator/PycharmProjects/pythonLearnFrist/seleniumChapter/dalert.html')
 
 '''#触发对话框，只有确定按钮
 driver.find_element_by_id("bu1").click()
@@ -30,7 +30,7 @@ al = driver.switch_to.alert
 #取消确认框
 al.dismiss()'''
 
-#提示框，有确定，取消和文本输入
+'''#提示框，有确定，取消和文本输入
 driver.find_element_by_id("bu3").click()
 al = driver.switch_to.alert
 #可以获取警告框的文本信息
@@ -38,6 +38,6 @@ print(al.text)
 #可以向提示框输入文本
 al.send_keys("这是我输入的内容") #输入的内容会生效，但是不会在界面上展示
 al.accept()
-# al.dismiss()
+# al.dismiss()'''
 
 driver.quit()
