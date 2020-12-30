@@ -1,0 +1,57 @@
+
+1，TypeError
+driver = webdriver.chrome()
+TypeError: 'module' object is not callable.
+解决方法：Chrome() 第一个字母大写
+
+2，chromedriver executable needs to be in path
+    问题原因，没有Chrome驱动，需要下载驱动，添加到环境变量或者指定驱动路径
+
+3. selenium 点击元素报错
+    ElementClick
+    被其他控件遮挡,可以点击以下旁边的元素，取消遮挡
+    用js去点击
+    ele =  driver.find_element_by_id()
+    driver.execute_script("argument[0].click;", ele)
+    用鼠标事件去点击
+    webdriver.ActionChains(driver).move_to_element(ele).click(ele).perform()
+
+4， selenium使用clear无法清除文本框内容
+    清除文本框之后，又被自动填充了
+    解决：键盘事件，先全选文本框内容，再删除键即可清除
+
+5， 下拉框是Input封装的，无法操作
+    先定位到input,然后输入内容，通过键盘事件，选择下拉框内容
+    ele = driver.find_element_by_id()
+    ele.send_keys(Keys.DOWN)
+    ele.send_keys(Keys.ENTER)
+
+6, NoSuchElement
+    1 之前的操作导致界面变化，元素定位表达式失效，定位失败
+    有可能是上一步操作异常，而上一步操作正是进入新页面的，所以没有进入新页面
+    ---重新定位，使操作元素的时候，使用的表达式与页面变化后的一致，解决上一部的异常
+    2，元素未加载，需要等待
+    3，内嵌网页，切换
+    4，多标签页，切换
+
+7 pycharm 导入selenium报错
+    pycharm的虚拟环境没有安装selenium
+       ---在pycharm中通过设置重新安装selenium
+    当前项目下，有selenium.py或者名字是selenium的文件夹，导致与系统包名冲突
+
+8 驱动或本地服务异常
+    未找到相应的浏览器驱动
+    WebDriverException: Message
+
+    驱动和浏览器不匹配
+    SessionCreatedException--chrome version
+
+9 驱动被防火墙拦截
+    webdriverexception, message: can not connect to the server
+    
+
+
+
+
+
+
