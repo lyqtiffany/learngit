@@ -1,3 +1,27 @@
+#UI automator viewer定位元素工具D:\forAppium\androidsdk\tools\bin\UIautomatorviewer.bat 双击，然后点左上角的第二个图标
+#WEditor也是一个定位元素的工具pip install weditor     启动 python -m weditor #adb连接手机，手机默认浏览器用谷歌或者火狐 #手机上看到ATX工具安装好
+
+
+#官网查看基本配置项 http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
+#appium 元素定位方法
+#1 目标元素有resource-id且id唯一，或者排第一个，就用find_elements_by_id，（默认找到第一个）
+#2 目标元素有content-desc属性,但是这个属性少见
+#find_element_by_accessibility_id
+#3 通过xpath来查找元素,通过xpath语法描述元素的特征（自身属性，元素的层级关系）
+    #app里面class的值和标签一样
+    # //标签[@属性=""]
+    #选择子元素 //标签[@属性值=""]/*
+    #选择父元素 //标签[@属性值=""]/..
+
+
+#adb无线连接
+    #手机和电脑处于同一个局域网
+    #首先用USB有限连接方式连接到计算机
+    #激活手机的无线服务 adb tcpip 5555
+    #adb connect 手机IP
+    #adb devices查看无线和有线都连接上了，需要拔掉USB线后不支持文件传输，就不能无线连接
+
+
 #导包
 import time
 
@@ -19,7 +43,7 @@ desired_caps={
     #确保自动化之后不重置app
     'noReset':True,
     #设置session的超时时间，单位秒，默认60s
-    'newCommandTimeout':6000,
+    'newCommandTimeout':36000,
     #设置底层测试驱动-1.15默认使用的底层驱动就是UiAutomator2
     'automationName':'UiAutomator2',#或者UiAutomator1
     #'skipServerInstallation':True#跳过UI2的安装，如果第一次运行程序，不要添加该配置
@@ -31,7 +55,7 @@ driver=webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 
 driver.implicitly_wait(10)#稳定元素
 
-#点击放大镜
+#点击放大镜,
 eles=driver.find_elements_by_id('com.hpbr.bosszhipin:id/img_icon')#先取所有符合条件的元素
 #找到第二个元素--放大镜
 btn=eles[1]
@@ -55,16 +79,22 @@ for job in job_msg:
     name=job.find_element_by_id('com.hpbr.bosszhipin:id/tv_position_name')
     print(name.text)
     #输出薪资
-    salray=job.find_element_by_id('com.hpbr.bosszhipin:id/tv_salary_statue')
-    print(salray.text)
+    salary=job.find_element_by_id('com.hpbr.bosszhipin:id/tv_salary_statue')
+    print(salary.text)
     #输出公司名称
     company=job.find_element_by_id('com.hpbr.bosszhipin:id/tv_company_name')
+    #第四个卡片有可能会被遮挡，判断公司名字是否找到
+    #companys=job.find_elements_by_id('com.hpbr.bosszhipin:id/tv_company_name')
+    #if companys:
+    #   print('%s|%s|%s'%(name.text,salary.text,companys[0].text))
+    #else:
+    #   print('%s|%s|%s'%(name.text,salary.text,'屏幕长度影响，没有找到公司名字'))
 
-    print('%s|%s|%s'%(name.text,salray.text,company.text))
+    print('%s|%s|%s'%(name.text,salary.text,company.text))
 
 
 
 # input('......')
 
 # 练习，获取地区，年限，学历
-driver.quit()
+# driver.quit()
