@@ -2,7 +2,9 @@
 #pip install pyyaml
 
 import time
-
+import os
+from multiprocessing import Process
+import subprocess
 from appiumChapter.config import boss_caps
 from appium import webdriver
 import yaml
@@ -89,6 +91,34 @@ def login(new_pwd):
 
 def end_app():
     driver.quit()
+
+
+def start_appium(*port):
+    for p in port:
+        cmd = 'appium -p ' + str(p)
+        print(cmd)
+        subprocess.Popen(cmd, shell=True)
+
+def close_appium(port):
+    # 查看端口被哪个进程占用
+    p = subprocess.Popen(f'netstat -ano |findstr {port}', shell=True, stdout=subprocess.PIPE) #linux netstat -ntpl|grep port
+    res1 = p.stdout.read().decode('gbk') #解码命令的输出,windows默认用gbk,linux用utf-8
+    if res1: #如果获取到了输出，表示该端口对应的PID存在
+        pid = res1.split()[-1]
+        os.system(f'taskkill /f /pid {pid}') #linxu关闭进程 kill -9
+
+def sync_appium_server():
+    process_list=[]
+    for port in ['4723','4725']:
+        p=Process(target=start_appium,args=(port,))
+        p.start()
+        process_list.append(p)
+    return process_list
+
+
+def terminal_sync_server(process_list):
+    for p in process_list:
+        p.terminate()
 
 #main方法用来测试自定义的方法
 if __name__ == '__main__':

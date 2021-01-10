@@ -3,6 +3,9 @@
 @date: 2020/7/24
 @file: boss0726.py
 '''
+
+#
+
 from appium import webdriver
 
 #告诉appium测试配置信息
