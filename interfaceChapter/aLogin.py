@@ -19,7 +19,7 @@ def login():
 
     resp = requests.post(url, data=payload)
     #打印请求头,响应对象的请求的头
-    print(resp.request.headers) #相应对象.请求.请求头
+    print(resp.request.headers) #响应对象.请求.请求头
     print(resp.request.body) #查看请求的Body
     #3 查看响应
     print(resp.text) #返回是字符串格式,响应体
@@ -42,6 +42,8 @@ params  一般是GET请求使用
 '''
 
 
+#以下关于JSON的说法正确的是？
+# 属性值，如果为逻辑值、空值。false,true,null 关键字必须为小写
 
 '''
 json跟字典的区别？
