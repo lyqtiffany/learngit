@@ -26,7 +26,4 @@ def func1():
     print("Func1 is running.")
 
 if __name__ == '__main__':
-    #func1()
-    a=[1,'a']
-    b=(1,)
-    print(a, b)
+    func1()

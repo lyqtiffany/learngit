@@ -1,5 +1,5 @@
-from day7XinBao.pages.basePage import BasePage
-from day7XinBao.utils.mysettings import URL
+from day7.pages.basePage import BasePage
+from day7.utils.mysettings import URL
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 

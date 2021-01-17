@@ -10,5 +10,6 @@ def max_list(lt):
 
 
 n = [1, 2, 2, 2, 3, 3, 3, 3, 4]
-#n = 'asdfddgfgsdaaaaa'
+m = 'asdfddgfgsdaaaaa'
 print(max_list(n))
+print(max_list(m))

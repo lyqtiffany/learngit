@@ -1,4 +1,4 @@
-# 1234567891011121314
+# leetcode 400 的题目1234567891011121314
 # 找到m位是哪个数字。 比如10 =1, 11 =0, 12=1
 
 class Solution:
@@ -16,11 +16,11 @@ class Solution:
         print('str(num)', str(num)[(n - 1) % digit])
         return int(str(num)[(n - 1) % digit])  # 转化为 string # 获得 num 的 第 (n - 1) % digit 个数位，并转化为 int
 
-aa = Solution()
-print(aa.findNthDigit(23))
-print(aa.findNthDigit(15))   #123456789 1011121314 1516
 
-#确定 15 n 所在 数字 的 位数 ，记为 digit 2 ；  23  2
-#确定 15  n所在的 数字 ，记为 num 12 ；   23 16
-#确定 15 是 12 中的哪一数位，并返回结果  23 shi 12 zhong de 6
+print(Solution().findNthDigit(23))
+print(Solution().findNthDigit(15))   #123456789 1011121314 1516
+
+#确定 15  n 所在 数字 的 位数 ，记为 digit 2 ；  如果是  23  2
+#确定 15  n所在的 数字 ，记为 num 12 ；        如果是 23 16
+#确定 15 是 12 中的哪一数位，并返回结果     如果是 23 即是 12 中的 6
 

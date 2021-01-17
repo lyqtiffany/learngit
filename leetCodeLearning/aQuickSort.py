@@ -43,22 +43,22 @@ if __name__ == '__main__':
     quick_sort(li, 0, len(li) - 1)
     print(li)
 
-# def quick_sort(data):  #递归
-#     """quick_sort"""
-#     if len(data) >= 2:
-#         mid = data[len(data)//2]
-#         left,right = [], []
-#         data.remove(mid)
-#         for num in data:
-#             if num >= mid: #mid 77--
-#                 right.append(num) #left 54 26 17 31 44 55 20--
-#             else:
-#                 left.append(num)  # right 93,--
-#         return quick_sort(left) + [mid] + quick_sort(right)
-#     else:
-#         return data
-# a = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-# print(quick_sort(a))
+def quick_sort(data):  #递归
+    """quick_sort"""
+    if len(data) >= 2:
+        mid = data[len(data)//2]
+        left,right = [], []
+        data.remove(mid)
+        for num in data:
+            if num >= mid: #mid 77--
+                right.append(num) #left 54 26 17 31 44 55 20--
+            else:
+                left.append(num)  # right 93,--
+        return quick_sort(left) + [mid] + quick_sort(right)
+    else:
+        return data
+a = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+print(quick_sort(a))
 
 
 

@@ -1,5 +1,5 @@
-from day7XinBao.utils.mysettings import Timeout,PallFrequency
-from day7XinBao.utils.mydriver import Driver
+from day7.utils.mysettings import Timeout,PallFrequency
+from day7.utils.mydriver import Driver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 

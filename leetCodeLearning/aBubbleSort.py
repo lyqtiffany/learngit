@@ -1,4 +1,4 @@
-#数组的值从小到大排序,aaaa
+#数组的值从小到大排序,冒泡排序
 class Solution:
     def bubbleSort(self, nums):
         count = 0
@@ -8,13 +8,12 @@ class Solution:
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
                 else:
                     continue
-                print(nums)
+                # print(nums)
                 count += 1
         return nums, count
         #print('count times', count)
 numsA = [53, 49, 34, 26, 19, 11, 2, 0]
-aaNums = Solution()
-print(aaNums.bubbleSort(numsA))
+print(Solution().bubbleSort(numsA))
 
 
 

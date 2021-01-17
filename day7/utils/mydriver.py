@@ -1,4 +1,4 @@
-from day7XinBao.utils.mysettings import URL,password,username
+from day7.utils.mysettings import URL,password,username
 # from day7.utils.mysettings import driverpath, URL,password,username
 from selenium import webdriver
 
@@ -16,7 +16,6 @@ class Driver:
                 # cls._driver=webdriver.Firefox(driverpath[browser_name])
                 pass
             else:
-
                 print(f"未配置此{browser_name}浏览器驱动")
                 return
             #隐式等待10秒

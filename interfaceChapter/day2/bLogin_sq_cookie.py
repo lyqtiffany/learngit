@@ -1,6 +1,14 @@
 # cookie关联操作
 
+fiddler_proxies = {       #fiddler 抓Python脚本的请求
+    'http':'http://127.0.0.1:8888',
+    'https':'https://127.0.0.1:8888'
+}
+
 import requests
+
+# requests.packages.urllib3.disable_warnings() #处理HTTPS警告
+#resp = requests.post(url, data= payload, verify =False) #verify=False表示不使用SSL
 
 def login():
     url = 'http://120.55.190.222:7080/api/mgr/loginReq'

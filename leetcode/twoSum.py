@@ -1,5 +1,5 @@
 class Solution:  #hashmap
-    def twoSum( num, target):
+    def twoSum(self, num, target):
         mapping = {} # dictionary, 字典 #key=element, value= index
         for i in range(len(num)): #for 遍历一次，
             diff = target - num[i]
@@ -7,8 +7,8 @@ class Solution:  #hashmap
                 return [mapping[diff], i]   #差值和遍历值的下标
             else:
                 mapping[num[i]] = i
-class Solutionb:
-    def twoSumb( num, target):  #暴力解法
+
+    def twoSumb( self, num, target):  #暴力解法
         for i in range(len(num)):
             for j in range(i+1, len(num)):
                 if num[i] + num[j] == target and i != j:
@@ -17,7 +17,12 @@ class Solutionb:
 
 if __name__ == '__main__':
     num = [2, 71, 13, 7]
-    print(Solution.twoSum( num, 9))
+    print(Solution().twoSum(num, 9))
+    print(Solution().twoSum([3, 2, 4], 6))
+    print(Solution().twoSum([3, 3], 6))
+    print(Solution().twoSumb(num, 9))
+    print(Solution().twoSumb([3, 2, 4], 6))
+    print(Solution().twoSumb([3, 3], 6))
 
 # 数据结构
 # 数组 array 1、268  78、90

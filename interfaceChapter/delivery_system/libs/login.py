@@ -17,7 +17,7 @@ import requests
 import hashlib
 from interfaceChapter.day2.config.config import HOST
 
-#http://121.41.14.39:8082/doc.html#/home  swagger 接口文档
+#121.41.14.39:8082/doc.html#/home  swagger 接口文档
 
 
 
