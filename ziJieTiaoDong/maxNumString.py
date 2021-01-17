@@ -1,4 +1,4 @@
-
+# # 179. 最大数
 list = ['1', '3', '34', '33', '4', '45'] #返回454343331
 tmp = 0
 str = ''
@@ -17,4 +17,4 @@ print(str)
 # print((listA[0] + listA[2]), (listA[2]+listA[0])) #56 65
 # print((listA[0] + listA[2]) > (listA[2]+listA[0])) #False
 
-str([1,3])
+

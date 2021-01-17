@@ -33,7 +33,8 @@ def get_excel_data(sheetName, caseName):
     index = 0  #遍历变量
     for one in workSheet.col_values(0): #遍历第0列，caseName
         if caseName in one:  #如果需要的用例名字在里面
-            reqBodyData = workSheet.cell(index, 9).value #请求体
+            reqBodyData = workSheet.cell(index, 9).value #请求体--字符串
+            # print(reqBodyData, type(reqBodyData))
             respData = workSheet.cell(index, 11).value #响应体
             #接口需要传递的是字典格式，excel读取出来是str,需要转换 json.loads()
             resList.append((json.loads(reqBodyData), json.loads(respData))) #[(请求体1，响应体1)，(请求体2，响应体2)]

@@ -29,3 +29,7 @@ class Solution(object):
             return max(a,b,c)
         return dfs(0,0,0)
 
+if __name__ == '__main__':
+    print(Solution().maxProfit([3, 3, 5, 0, 0, 3, 1, 4])) #6
+    print(Solution().maxProfit([1, 2, 3, 4, 5]))   #4
+    print(Solution().maxProfit([7, 6, 4, 3, 1]))  #0

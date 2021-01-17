@@ -13,7 +13,7 @@ for i in range(2, 101):
         num.append(i)
 print(num)
 
-'''# !/usr/bin/python
+# !/usr/bin/python
 # -*- coding: UTF-8 -*-
 num = [];
 i = 2
@@ -24,4 +24,4 @@ for i in range(2, 100):
             break
     else:
         num.append(i)
-print(num)'''
+print(num)

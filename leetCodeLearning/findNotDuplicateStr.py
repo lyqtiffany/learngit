@@ -1,5 +1,5 @@
 #python算法：找出字符串中第一个不重复的字符
-'''def first_char(str):
+def first_char(str):
     dic = {}
     for i in range(len(str)):
         #累计字符的出现次数
@@ -11,9 +11,11 @@
     for i in range(len(str)):
         if dic[str[i]] == 1:
             return str[i], i+1
+        else:
+            return ''
 if __name__ == '__main__':
     str1 = ['a', 'b', 'c', 'd', 'a', 'b', 'c']
-    print(first_char(str1))'''
+    print(first_char(str1))
 
 
 '''在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
@@ -36,14 +38,14 @@ s = ""
 返回 ' ' ，代表字符串无数量为 11 的字符。
 
 Python 代码中的 not c in dic 整体为一个布尔值； c in dic 为判断字典中是否含有键 c 。'''
-class Solution:
-    def firstUniqChar( s):
-        dic = {}
-        for c in s:
-            dic[c] = not c in dic
-        for c in s:
-            if dic[c]: return c
-        return ' '
-s = "abaccdeff "
-if __name__ == '__main__':
-    print(Solution.firstUniqChar(s))
+# class Solution:
+#     def firstUniqChar( s):
+#         dic = {}
+#         for c in s:
+#             dic[c] = not c in dic
+#         for c in s:
+#             if dic[c]: return c
+#         return ' '
+# s = "abaccdeff "
+# if __name__ == '__main__':
+#     print(Solution.firstUniqChar(s))
