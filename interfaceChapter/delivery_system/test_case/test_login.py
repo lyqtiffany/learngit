@@ -1,40 +1,45 @@
 
 # 1 获取excel对应的数据
-# 2 调用封装好的接口库代码
-#3 调试运行
-from interfaceChapter.delivery_system.tools.excelControl import get_excel_data, set_excelData
+
+from interfaceChapter.delivery_system.tools.excelControl import get_excel_data, set_excelData,get_excel_rowNum
 from interfaceChapter.delivery_system.libs.login import Login
+import pytest
+import os
+#
 
+#4-封装测试类
+class TestLogin():
+    @pytest.mark.parametrize('inBody, expData', get_excel_data('登录模块', 'Login'))
+    def test_login(self, inBody, expData): #封装测试方法
+        #调用登录接口代码
+        res = Login().login(inBody)
+        # 做断言
+        assert res['msg'] == expData['msg']
 
-#http://121.41.14.39:8082/doc.html#/home  swagger 接口文档
+if __name__ == '__main__':
+    #需要删除上一次运行的文件，不然allure报告里面会直接累加
+    try:
+        for one in os.listdir('../report/tmp'):
+            if 'json' in one or 'txt' in one:
+                os.remove(f'../report/tmp/{one}')
+    except:
+        print('first time run')
 
-# res = get_excel_data('登录模块','Login')
-# print(res)
+    pytest.main(['test_login.py','--alluredir','../report/tmp']) #显示打印信息， -q 简化信息
+    #2 -显示测试报告：步骤：1-先pytest --alluredir生成报告所需要的文件
+                        # 2- 使用allure 生成可视化报告
+    os.system('allure serve ../report/tmp')
+    #1 启动allure 服务，不能关闭pycharm
+    #2 自动打开浏览器--注意，使用谷歌，火狐
 
-workBookNew,workSheetNew = set_excelData()#元组
-excelData = get_excel_data('登录模块','Login')
+    '''
+    . 用例执行成功
+    F 断言失败
+    E 语法错误
+    '''
+    #如果在命令行执行测试用例的话，
+    # cd 到测试用例路径，直接pytest就可以执行目录下的所有用例
 
-for one in excelData:
-    # print(one)
-    bodyData = one[0] #请求头
-    respData = one[1] #响应体
-    # bodyData, respData = one #合成一个步骤
-
-    res = Login().login(bodyData)
-    #print(res)
-
-    #断言
-    if res['msg'] == respData['msg']:
-        info = 'pass'
-
-        workSheetNew.write(excelData.index(one) + 1, 12, info)  # (行号，列号，字符串内容)
-    else:
-        info = 'fail'
-
-        workSheetNew.write(excelData.index(one) + 1, 12, info)
-    #print(info)
-workBookNew.save('../data/res.xls')
- # 4 写入结果
 
 
 

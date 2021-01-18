@@ -15,9 +15,11 @@
 
 import requests
 import hashlib
-from interfaceChapter.delivery_system.configs.config import HOST
+from interfaceChapter.delivery_syste.configs.config import HOST
 
 #121.41.14.39:8082/doc.html#/home  swagger 接口文档
+
+
 
 def get_md5(pwd):  # 编写加密密码的函数
     md5 = hashlib.md5()  # 创建对象for md5
@@ -25,25 +27,30 @@ def get_md5(pwd):  # 编写加密密码的函数
     return md5.hexdigest()  # 返回十六进制,加密后的结果
 
 class Login:
+
     # 2 封装加密函数
     def login(self, inData, getToken = False):
         #1 -url
         url = f'{HOST}/account/sLogin'
+
         #调用加密函数
         inData["password"] = get_md5(inData["password"])
         payload = inData
         # 抓包看到的密码是加密的md5 32位小，所以需要转换成加密后的密码输入
+
         resp = requests.post(url, data=payload)
+
         if getToken == True:
             return resp.json()['data']['token'] #获取token
         else:
             return resp.json()  #响应数据
 
+
+
+
 if __name__ == '__main__': #快捷键 ctrl + j
     res = Login().login({'username':'sq0777','password':'xintian'})
     print(res)
-    res1 = Login().login({'username':'sq0777','password':'xintian'}, getToken=True)
-    print(res1)
 
 
 

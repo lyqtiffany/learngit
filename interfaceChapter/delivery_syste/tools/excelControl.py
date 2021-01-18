@@ -21,7 +21,7 @@ def get_excel_data(sheetName, caseName):
     #2 需要把excel加载到内存---open, formatting_info=True保持原来的样式
     workBook = xlrd.open_workbook(excelFile, formatting_info=True)
     #3- 获取对应的sheet
-    print(workBook.sheet_names()) #获取所有的sheet名称
+    # print(workBook.sheet_names()) #获取所有的sheet名称
     workSheet = workBook.sheet_by_name(sheetName)
     #获取一行数据
     #print(workSheet.row_values(0))  #excel编号的下标从0开始
