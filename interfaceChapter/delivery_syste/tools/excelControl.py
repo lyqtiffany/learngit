@@ -31,11 +31,13 @@ def get_excel_data(sheetName, caseName):
 
     #遍历第0列
     index = 0  #遍历变量
-    for one in workSheet.col_values(0): #遍历第0列，caseName
+    caseNameList = workSheet.col_values(0)
+    for one in caseNameList: #遍历第0列，caseName
         if caseName in one:  #如果需要的用例名字在里面
             reqBodyData = workSheet.cell(index, 9).value #请求体--字符串
-            # print(reqBodyData, type(reqBodyData))
+
             respData = workSheet.cell(index, 11).value #响应体
+            # print(respData, type(respData))
             #接口需要传递的是字典格式，excel读取出来是str,需要转换 json.loads()
             resList.append((json.loads(reqBodyData), json.loads(respData))) #[(请求体1，响应体1)，(请求体2，响应体2)]
         index += 1
@@ -70,7 +72,11 @@ def set_excelData():
     return workBookNew,workSheetNew#复制出来的excel对象，复制出来excel对象的第一个子表
 
 if __name__ == '__main__':
-     res = get_excel_data('登录模块',"Login")
-     for one in res:
+    res = get_excel_data('登录模块',"Login")
+    for one in res:
         print(one)
+    nums = get_excel_rowNum('登录模块',"Login")
+    for num in nums:
+        print(num)
+
 
