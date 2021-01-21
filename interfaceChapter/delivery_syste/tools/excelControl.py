@@ -15,6 +15,7 @@ from xlutils.copy import copy
 def get_excel_data(sheetName, caseName):
 
     resList = []  # 存放excel读取结果
+    indexList = []
 
     #1 获取excel路径
     excelFile = '../data/delivery_testcase.xls'
@@ -30,18 +31,19 @@ def get_excel_data(sheetName, caseName):
     #print(workSheet.cell(1,9).value) #workSheet.cell(行号，列号).value
 
     #遍历第0列
-    index = 0  #遍历变量
+    #index = 0  #遍历变量
     caseNameList = workSheet.col_values(0)
     for one in caseNameList: #遍历第0列，caseName
         if caseName in one:  #如果需要的用例名字在里面
-            reqBodyData = workSheet.cell(index, 9).value #请求体--字符串
+            reqBodyData = workSheet.cell(caseNameList.index(one), 9).value #请求体--字符串
 
-            respData = workSheet.cell(index, 11).value #响应体
+            respData = workSheet.cell(caseNameList.index(one), 11).value #响应体
             # print(respData, type(respData))
+            indexList.append(caseNameList.index(one))
             #接口需要传递的是字典格式，excel读取出来是str,需要转换 json.loads()
             resList.append((json.loads(reqBodyData), json.loads(respData))) #[(请求体1，响应体1)，(请求体2，响应体2)]
-        index += 1
-    return resList
+        #index += 1
+    return resList,indexList
 
 
 def get_excel_rowNum(sheetName, caseName):
