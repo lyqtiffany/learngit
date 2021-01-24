@@ -1,7 +1,7 @@
 
 # 1 获取excel对应的数据
 
-from interfaceChapter.delivery_system.tools.excelControl import get_excel_data, set_excelData,get_excel_rowNum
+from interfaceChapter.delivery_system.tools.excelControl import get_excel_data, set_excelData
 from interfaceChapter.delivery_system.libs.login import Login
 import pytest
 import os

@@ -1,0 +1,77 @@
+
+#注释, :后面需要加一个空格
+#1 -字典 键： 值
+#username: sq0777 #账号
+#password: xintian #密码
+#data: 100 #int
+#dataA: "100"  #str
+#NAME_PSW:
+#  username: sq0777
+#  password: xintian
+
+
+##2-列表格式
+#- 10
+#- 20
+#- 30
+#
+#-
+#  - 100
+#  - 200
+
+##3 列表里面套用字典
+#- 11
+#- 21
+#-
+#  name: sq
+#  password: 123456
+
+
+## 字典套list
+#name: sq
+#passowrd:
+#  - 10
+#  - 20
+#  - 30
+
+## 5引号的处理
+## 如果有英文字母或者中文，不加引号也是字符串
+## 什么时候一定要加引号
+##如果有特殊字符，比如\n, 不加引号就原字符样式输出
+##如果特殊字符需要显示效果，需要加双引号
+#info: "helloworld"
+#data: "10"
+#inforB: hello\nworld
+#infoC: "heoo\nwoo"
+
+## 6 引用一个数据，可以使用很多地方,换账号，方便维护，使用变量
+## &变量 定义变量
+## *变量 引用变量
+#info: sq
+#name: sq
+#name1: sq
+#
+#info2: &a sq
+#info3: *a
+
+
+#7  能不能多个yaml写在一起，既有字典，也有列表
+# --- 分隔符，分隔两个文件一样
+- 10
+- 22
+- 33
+---
+name: sq
+info: hello
+
+##yaml 可以嵌套yaml
+## 需要新建一个py文件,里面改点代码
+#data: data.yaml
+
+
+
+
+
+
+
+

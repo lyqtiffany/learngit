@@ -1,0 +1,67 @@
+pip install pytest-sugar  打印格式更好看
+
+# pytest mark 标签，在不需要运行所有用例的时候，只测试部分场景
+也就是用例定制化执行
+
+**需要的场景
+在回归测试里面，开发修改一个业务的bug，需要对对应的业务测试。能不能筛选出对应的业务模块的部分接口！
+
+**现象：
+pytest.main(['test_shop.py', '-s']) --会执行所有用例
+所有的测试用例都执行！
+
+解决方案：
+    定制化执行测试用例--mark
+
+对于Pytest,我们可以在每一个模块，每一个类，每一个方法和用例前都加上marker,那样我们
+
+
+-m 表示执行对应标签名字
+一个 '-m', 'mark_name1'
+多个 '-m', 'mark_name1 or mark_name2'
+0个 '-m', 'mark_name1 and mark_name2'
+排除法 '-m', 'not (mark_name1)'
+
+-k  匹配用例名称  命令行执行pytest, 执行对应用例文件名xx.py
+在项目目录test_case下,执行命令  pytest -s -k shop
+#执行.pytest_cache同目录的test_xxx.py, 文件名字中包含shop的就执行，也就是执行test_shop.py
+
+-v 节点 多层化
+  例子： test_lesson.py::TestLession::test_less_add
+在项目目录test_case下,执行命令 pytest -s -v tes_shop.py::TestShop
+                  pytest -s -v tes_shop.py::TestShop::test_shop_list
+
+-sq:简化打印信息
+-s 输出打印
+-q 简化打印信息
+
+跳过、条件跳过方式
+    体
+
+
+
+遇到的问题：没有被pytest框架认证的
+解决：我去认证
+
+PytestUnknownMarkWarning: Unknown pytest.mark.shop_update - is this a typo?
+You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/mark.html
+    @pytest.mark.shop_update #店铺列出的标签
+
+具体步骤：
+pycharm->file-settings --plugins--搜寻安装ini--项目下面新建pytest.ini
+pytest.ini里面的内容如下：
+[pytest]
+markers =
+    login: Run login case
+    shop_list: Run Shop case
+    shop_update: Run Shop case
+
+ # : 后面是一个空格加注释，
+
+redis启动的三个警告，比如其中一个是内存设置警告
+
+
+
+
+
+

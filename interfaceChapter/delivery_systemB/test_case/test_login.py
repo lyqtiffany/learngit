@@ -28,7 +28,7 @@ if __name__ == '__main__':
     pytest.main(['test_login.py','--alluredir','../report/tmp']) #显示打印信息， -q 简化信息
     #2 -显示测试报告：步骤：1-先pytest --alluredir生成报告所需要的文件
                         # 2- 使用allure 生成可视化报告
-    os.system('allure serve ../report/tmp')
+    # os.system('allure serve ../report/tmp')
     #1 启动allure 服务，不能关闭pycharm
     #2 自动打开浏览器--注意，使用谷歌，火狐
 

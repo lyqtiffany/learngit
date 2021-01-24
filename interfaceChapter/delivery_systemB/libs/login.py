@@ -32,6 +32,8 @@ class Login:
         #调用加密函数
         inData["password"] = get_md5(inData["password"])
         payload = inData
+        # print(id(payload)) 每次的payload  ID地址是同一个值
+
         # 抓包看到的密码是加密的md5 32位小，所以需要转换成加密后的密码输入
         resp = requests.post(url, data=payload)
         if getToken == True:

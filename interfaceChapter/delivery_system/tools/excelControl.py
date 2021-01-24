@@ -8,69 +8,76 @@
         -缺点 ： 如果测试人员对测试用例进行修改，导致代码报错
     2-智能读取--模糊匹配
 '''
-import xlrd,xlwt
+import xlrd
 import json
 from xlutils.copy import copy
 
 def get_excel_data(sheetName, caseName):
+    """
+    :param sheetName: the sheet name which need to read data
+    :param caseName: the caseName
+    :return: [request body, expected result]
+    """
+    resList = []  #存放从测试用例中读取出来的请求体和期望结果
 
-    resList = []  # 存放excel读取结果
+    execFile = '../data/delivery_testcase.xls'
 
-    #1 获取excel路径
-    excelFile = '../data/delivery_testcase.xls'
-    #2 需要把excel加载到内存---open, formatting_info=True保持原来的样式
-    workBook = xlrd.open_workbook(excelFile, formatting_info=True)
-    #3- 获取对应的sheet
-    print(workBook.sheet_names()) #获取所有的sheet名称
+    workBook = xlrd.open_workbook(execFile)
     workSheet = workBook.sheet_by_name(sheetName)
-    #获取一行数据
-    #print(workSheet.row_values(0))  #excel编号的下标从0开始
-    #获取一列数据
-    #print(workSheet.col_values(0))
-    #print(workSheet.cell(1,9).value) #workSheet.cell(行号，列号).value
 
-    #遍历第0列
-    index = 0  #遍历变量
-    for one in workSheet.col_values(0): #遍历第0列，caseName
-        if caseName in one:  #如果需要的用例名字在里面
-            reqBodyData = workSheet.cell(index, 9).value #请求体--字符串
-            # print(reqBodyData, type(reqBodyData))
-            respData = workSheet.cell(index, 11).value #响应体
-            #接口需要传递的是字典格式，excel读取出来是str,需要转换 json.loads()
-            resList.append((json.loads(reqBodyData), json.loads(respData))) #[(请求体1，响应体1)，(请求体2，响应体2)]
-        index += 1
+    # 获取一列数据
+    # for i in range(len(workSheet.col_values(0))):
+    #     print(workSheet.col_values(0)[i])
+
+    caseNameData = workSheet.col_values(0) #第0列包含所有的case名字
+
+    for one in caseNameData:
+        if caseName in one:
+            bodyData = workSheet.cell(caseNameData.index(one),9).value
+            expData = workSheet.cell(caseNameData.index(one),11).value #str
+            resList.append((json.loads(bodyData),json.loads(expData)))  #json.loads() #转换成为字典
+
     return resList
 
 
-def get_excel_rowNum(sheetName, caseName):
-
-    numList = []  # 存放excel需要的行号,sheet里面可能有多个模块的用例，比如我们只需要登陆用例
-
-    #1 获取excel路径
-    excelFile = '../data/delivery_testcase.xls'
-    #2 需要把excel加载到内存---open, formatting_info=True保持原来的样式
-    workBook = xlrd.open_workbook(excelFile, formatting_info=True)
-    #3- 获取对应的sheet
-
-    workSheet = workBook.sheet_by_name(sheetName)
-    index = 0  # 遍历变量
-    for one in workSheet.col_values(0):  # 遍历第0列，caseName
-        if caseName in one:  # 如果需要的用例名字在里面
-            numList.append(index)  #
-        index += 1
-    return numList
-
-def set_excelData():
-    #1-excel表路径
+def set_excelData(sheetIndex, indexList, actual_result_List, status_List):
+    """
+    :param sheetIndex:
+    :param indexList: List contains valid case row number
+    :param actual_result_List: List contains actual result
+    :param status_List: List contains status for each test case's status
+    :return: write result to excel file
+    """
+    # 1原始测试用例excel表路径
     excelDir = '../data/delivery_testcase.xls'
-    #2- 打开excel对象--formatting_info=True  保持样式
+    #2 打开excel 对象
     workBook = xlrd.open_workbook(excelDir,formatting_info=True)
-    workBookNew = copy(workBook)#复制一个新excel文件对象
-    workSheetNew = workBookNew.get_sheet(0)#取复制出来的新excel文件对象的第一个子表,只能用下标
-    return workBookNew,workSheetNew#复制出来的excel对象，复制出来excel对象的第一个子表
+    workBookNew = copy(workBook) #复制一个新excel文件对象
+    workSheetNew = workBookNew.get_sheet(sheetIndex) #取出复制出来的新excel 文件对象的第一个子表,只能用下标
+
+    for i in range(len(indexList)):
+        workSheetNew.write(indexList[i], 12, actual_result_List[i])
+        workSheetNew.write(indexList[i], 13, status_List[i])
+
+    workBookNew.save('../data/resD.xls')
+
+
+def get_excel_index(sheetName, caseName):
+    indexList = []  # 存放
+    execFile = '../data/delivery_testcase.xls'
+
+    workBook = xlrd.open_workbook(execFile)
+    workSheet = workBook.sheet_by_name(sheetName)
+    caseNameData = workSheet.col_values(0)  # 第0列包含所有的case名字
+
+    for one in caseNameData:
+        if caseName in one:
+            indexList.append(caseNameData.index(one))
+    return indexList
+
 
 if __name__ == '__main__':
-     res = get_excel_data('登录模块',"Login")
-     for one in res:
-        print(one)
+    indexList =get_excel_index('登录模块', 'Login')
+    for i in indexList:
+        print(i)
 

@@ -26,12 +26,10 @@ class TestShop:
         else:
             assert res['error'] == expData['error']
 
-
-
     
-    def test_001(self,update_shop_init):
-        print('店铺id: ',update_shop_init[0])
-        print('图片信息: ', update_shop_init[1])
+    # def test_001(self,update_shop_init):
+    #     print('店铺id: ',update_shop_init[0])
+    #     print('图片信息: ', update_shop_init[1])
 
 
     # 2 更新店铺
@@ -40,7 +38,7 @@ class TestShop:
     #pytest--fixture--环境初始化与清除操作,添加conftest文件
    # @pytest.mark.usefixtures('update_shop_init')#写入函数名字，调用conftest里面的初始化函数
     @pytest.mark.parametrize('inBody, expData',get_excel_data('我的商铺','updateshopping'))
-    def test_shop_list(self,inBody, expData, update_shop_init):
+    def test_shop_update(self,inBody, expData, update_shop_init):
         #调用业务模块代码
         res = self.shopObject.shop_update(inBody,update_shop_init[0],update_shop_init[1])
 
@@ -50,6 +48,7 @@ class TestShop:
             assert res['code'] == expData['code']
         else:
             assert res['error'] == expData['error']
+
 
 if __name__ == '__main__':
     pytest.main(['test_shop.py','--alluredir','../report/tmp'])

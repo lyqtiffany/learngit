@@ -1,6 +1,7 @@
 
 from interfaceChapter.delivery_systemB.libs.login import Login
 from interfaceChapter.delivery_systemB.libs.shop import Shop
+from interfaceChapter.delivery_systemB.configs.config import NAME_PSW
 #conftest放到哪一个包，只对这个包起作用！，比如当前是test_case包
 
 import pytest
@@ -39,6 +40,7 @@ def update_shop_init():
     # 1 登录
 
     token = Login().login({'username': 'sq0777', 'password': 'xintian'}, getToken=True)
+
 
     #  # 2 店铺id   列出店铺调用
     shop = Shop(token)
