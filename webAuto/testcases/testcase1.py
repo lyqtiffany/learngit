@@ -59,7 +59,7 @@ def yanzheng(): #'http://jpress.io/user/register'注册页面的验证码小图�
 def getStringYanZheng(): #验证简单的验证码或者通过第三方api识别验证码
 
     ##验证老师举例的简单验证码图片
-    # path = os.path.dirname(os.path.abspath(__file__)) #tf try
+    # path = os.path.dirname(os.path.abspath(__file__)) #tf tryA
     # file_path = 'file:///' + path + 'test.png'  #验证老师举例的简单验证码图片
     # image1 = Image.open(file_path)
     #

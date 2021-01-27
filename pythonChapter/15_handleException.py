@@ -1,7 +1,7 @@
 #异常
 #一个抓取异常的语句中至少要有try 和至少一个except,还可以加else语句和finally语句
 
-# try:
+# tryA:
 #     a = int(input('please input a number'))
 #     print(1/a)
 # except ZeroDivisionError: #捕获0作为分母的异常
@@ -26,7 +26,7 @@
 
 
 #手动抛出异常
-# try:
+# tryA:
 #     raise IOError  #raise，方便调试程序能否正常抛出异常
 # except IOError:
 #     print('文件读写错误')
@@ -46,7 +46,7 @@
 # logging.error('error')
 # logging.critical(time.strftime('%y-%m-%d %H-%M-%S')+'critical error')
 #
-# try:
+# tryA:
 #     a = int(input('please input a number'))
 #     print(1/a)
 # except ZeroDivisionError: #捕获0作为分母的异常

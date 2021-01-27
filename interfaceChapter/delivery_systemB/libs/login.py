@@ -36,6 +36,8 @@ class Login:
 
         # 抓包看到的密码是加密的md5 32位小，所以需要转换成加密后的密码输入
         resp = requests.post(url, data=payload)
+        # print(resp.encoding)
+        # resp.encoding="gbk" #修改响应的编码,encoding是属性
         if getToken == True:
             return resp.json()['data']['token'] #获取token
         else:
@@ -46,6 +48,24 @@ if __name__ == '__main__': #快捷键 ctrl + j
     print(res)
     res1 = Login().login({'username':'sq0777','password':'xintian'}, getToken=True)
     print(res1)
+
+
+    #编码，把字符转换成计算机可以识别的
+    name = "你好"
+    name1 = name.encode("utf-8")  # 编码
+    print(name1)
+
+    #把计算机的编码解码成人可以看懂的
+    name2 = name1.decode("gbk") #解码
+    print(name2)
+    name2 = name1.decode("utf-8")  # 解码，解铃还得系铃人
+    print(name2)
+
+    '''
+    在接口测试里的编码乱码
+    服务器，接口返回的响应数据是开发决定的，是什么编码必须遵守
+    响应中，content-type的charset会显示服务器的编码
+    '''
 
 
 

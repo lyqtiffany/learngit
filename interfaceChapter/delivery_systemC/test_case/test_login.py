@@ -1,12 +1,14 @@
 
 # 1 获取excel对应的数据
-
+from interfaceChapter.delivery_systemC.tools.logBasic import logger
 from interfaceChapter.delivery_systemC.tools.excelControl import get_excel_data, set_excelData,get_excel_rowNum
 from interfaceChapter.delivery_systemC.libs.login import Login
 import pytest
 import os
 import allure
+import traceback
 #
+log = logger()
 
 @allure.epic("外卖项目")
 @allure.feature("登陆模块")
@@ -20,7 +22,13 @@ class TestLogin():
         #调用登录接口代码
         res = Login().login(inBody)
         # 做断言
-        assert res['msg'] == expData['msg']
+        try:
+            assert res['msg'] == expData['msg']
+        except Exception as error:
+            log.error(error) #打印error
+            log.error(traceback.format_exc())
+            #如果框架里面加了异常机制，会导致报告不会体现出错误
+            raise error #抛出错误
 
 if __name__ == '__main__':
     #需要删除上一次运行的文件，不然allure报告里面会直接累加

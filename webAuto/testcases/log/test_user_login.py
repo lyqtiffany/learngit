@@ -41,7 +41,7 @@ class TestUserLogin(object):
         try:
             assert alert.text == expected
         except AssertionError as ae:
-            self.logger.error("try catch exception: %s", "报错了", exc_info=1)
+            self.logger.error("tryA catch exception: %s", "报错了", exc_info=1)
         print(alert.text)
         alert.accept()
 
