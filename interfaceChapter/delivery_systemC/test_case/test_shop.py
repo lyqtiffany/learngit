@@ -1,8 +1,5 @@
 import pytest
 import os
-from interfaceChapter.delivery_systemC.libs.shop import Shop
-from interfaceChapter.delivery_systemC.libs.login import Login
-from interfaceChapter.delivery_systemC.configs.config import NAME_PSW
 from interfaceChapter.delivery_systemC.tools.excelControl import get_excel_data
 import allure
 
