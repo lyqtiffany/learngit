@@ -53,6 +53,7 @@ pytest.ini里面的内容如下：
 [pytest]
 markers =
     login: Run login case
+    shop: Run shop case
     shop_list: Run Shop case
     shop_update: Run Shop case
 

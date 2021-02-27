@@ -63,7 +63,6 @@ def set_excelData(sheetIndex, indexList, actual_result_List, status_List):
 
 
 
-
 if __name__ == '__main__':
     res = get_excel_data('登录模块',"Login")
     for one in res:

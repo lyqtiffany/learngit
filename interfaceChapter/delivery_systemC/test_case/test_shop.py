@@ -53,6 +53,7 @@ class TestShop:
     #只有这个接口需要，其他接口不需要，不能放到setup_class
     #pytest--fixture--环境初始化与清除操作,添加conftest文件
    # @pytest.mark.usefixtures('update_shop_init')#写入函数名字，调用conftest里面的初始化函数
+
     @allure.story("店铺更新")
     @allure.title("店铺更新操作，从excel接口用例读标题、描述写过来也可以")
     @pytest.mark.shop_update #店铺列出的标签
@@ -72,8 +73,11 @@ class TestShop:
 if __name__ == '__main__':
 
     # pytest.main(['test_shop.py','-m', 'shop_update','--alluredir','../report/tmp'])
-    pytest.main(['test_shop.py', '--alluredir', '../report/tmp'])
-    os.system('allure serve ../report/tmp')
+    # pytest.main(['test_shop.py', '--alluredir', '../report/tmp'])
+    # os.system('allure serve ../report/tmp')
+
+    pytest.main(['test_shop.py', '-s', '--alluredir', '../report/tmp'])
+    os.system('allure generate ../report/tmp -o ../report/report --clean')
 
 
 

@@ -1,0 +1,53 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test_case",
+    "children" : [ {
+      "name" : "test_func",
+      "children" : [ {
+        "name" : "TestLogin",
+        "children" : [ {
+          "name" : "登录模块第二个case的标题",
+          "uid" : "b598b2792f325fcc",
+          "parentUid" : "6cf4cae5b6844fec022d181422ca0ec1",
+          "status" : "passed",
+          "time" : {
+            "start" : 1613872875832,
+            "stop" : 1613872875832,
+            "duration" : 0
+          },
+          "flaky" : false,
+          "parameters" : [ "1", "2" ]
+        }, {
+          "name" : "登录模块第二个case的标题",
+          "uid" : "6269ab52d05aee01",
+          "parentUid" : "6cf4cae5b6844fec022d181422ca0ec1",
+          "status" : "passed",
+          "time" : {
+            "start" : 1613872875837,
+            "stop" : 1613872875838,
+            "duration" : 1
+          },
+          "flaky" : false,
+          "parameters" : [ "3", "4" ]
+        }, {
+          "name" : "登录模块第二个case的标题",
+          "uid" : "4fa98d7e96b2eb0c",
+          "parentUid" : "6cf4cae5b6844fec022d181422ca0ec1",
+          "status" : "passed",
+          "time" : {
+            "start" : 1613872875843,
+            "stop" : 1613872875843,
+            "duration" : 0
+          },
+          "flaky" : false,
+          "parameters" : [ "5", "6" ]
+        } ],
+        "uid" : "6cf4cae5b6844fec022d181422ca0ec1"
+      } ],
+      "uid" : "41e76063a77e90490b2c1ce33f7d29e2"
+    } ],
+    "uid" : "86abcc46617c603d802c3e378b13740e"
+  } ]
+}

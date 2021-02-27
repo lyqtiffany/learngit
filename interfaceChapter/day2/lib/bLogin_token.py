@@ -22,6 +22,7 @@ from interfaceChapter.day2.config.config import HOST
 
 
 def get_md5(pwd):  # 编写加密密码的函数
+
     md5 = hashlib.md5()  # 创建对象for md5
     md5.update(pwd.encode('utf-8'))  # 加密方法
     return md5.hexdigest()  # 返回十六进制,加密后的结果
@@ -44,8 +45,6 @@ class Login:
             return resp.json()['data']['token'] #获取token
         else:
             return resp.json()  #响应数据
-
-
 
 
 if __name__ == '__main__': #快捷键 ctrl + j

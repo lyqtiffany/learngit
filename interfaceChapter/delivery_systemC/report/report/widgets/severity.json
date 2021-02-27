@@ -1,0 +1,31 @@
+[ {
+  "uid" : "6269ab52d05aee01",
+  "name" : "登录模块第二个case的标题",
+  "time" : {
+    "start" : 1613872875837,
+    "stop" : 1613872875838,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4fa98d7e96b2eb0c",
+  "name" : "登录模块第二个case的标题",
+  "time" : {
+    "start" : 1613872875843,
+    "stop" : 1613872875843,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b598b2792f325fcc",
+  "name" : "登录模块第二个case的标题",
+  "time" : {
+    "start" : 1613872875832,
+    "stop" : 1613872875832,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

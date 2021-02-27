@@ -1,0 +1,13 @@
+[ {
+  "values" : [ "77" ],
+  "name" : "Browser.version"
+}, {
+  "values" : [ "http://121.41.14.39/login" ],
+  "name" : "Apiurl"
+}, {
+  "values" : [ "3.8" ],
+  "name" : "Python.version"
+}, {
+  "values" : [ "Firefox" ],
+  "name" : "Browser"
+} ]

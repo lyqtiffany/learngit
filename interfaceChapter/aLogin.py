@@ -3,6 +3,9 @@ import hashlib
 #项目的服务器地址+端口
 HOST = 'http://121.41.14.39:8082'
 
+# http://121.41.14.39:8082/shop/index.html#/login
+
+
 # 2 封装加密函数
 def get_md5(pwd): #编写加密密码的函数
     md5 = hashlib.md5() #创建对象for md5
@@ -51,15 +54,34 @@ json跟字典的区别？
     dict: 数据类型，可以储存， pycharm控制台打印出来显示是单引号
 '''
 
-'''#字典类型
-a = {"name" : "sq"} #字典打印出来都是单引号
+#字典类型
+a = {"name" : "testdict"} #字典打印出来都是单引号
 print(a)
 
 #json
-b = '{"password": "123"}'
+b = '{"password": "try_json"}'
 print(b)
 
 #字典转化成json
 import json
 print(json.dumps(a))
-'''
+print(type(json.dumps(a)))
+
+#json转化成字典
+print(json.loads(b))
+print(type(json.loads(b)))
+
+
+#字典类型
+a = {"name":"ss"}
+print(a)
+
+
+#字典转化成json
+import json
+print(json.dumps(a))
+
+clist = []
+clist.append(json.dumps(a))
+clist.append(a)
+print(clist)

@@ -1,0 +1,49 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "USER-20180406DK",
+    "children" : [ {
+      "name" : "5404-MainThread",
+      "children" : [ {
+        "name" : "登录模块第二个case的标题",
+        "uid" : "4fa98d7e96b2eb0c",
+        "parentUid" : "86e07b4e718cd53930894ea6d863f93c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613872875843,
+          "stop" : 1613872875843,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "5", "6" ]
+      }, {
+        "name" : "登录模块第二个case的标题",
+        "uid" : "6269ab52d05aee01",
+        "parentUid" : "86e07b4e718cd53930894ea6d863f93c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613872875837,
+          "stop" : 1613872875838,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "parameters" : [ "3", "4" ]
+      }, {
+        "name" : "登录模块第二个case的标题",
+        "uid" : "b598b2792f325fcc",
+        "parentUid" : "86e07b4e718cd53930894ea6d863f93c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1613872875832,
+          "stop" : 1613872875832,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ "1", "2" ]
+      } ],
+      "uid" : "86e07b4e718cd53930894ea6d863f93c"
+    } ],
+    "uid" : "f8230a2ec6bead619ee456ee605cc0ec"
+  } ]
+}

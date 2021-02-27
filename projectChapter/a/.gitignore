@@ -1,0 +1,5 @@
+# 排除某些文件类型，不保存到git仓库中，比如python的编译文件pyc
+__pycache__
+*.pyc
+.pytest_cache
+tmp
