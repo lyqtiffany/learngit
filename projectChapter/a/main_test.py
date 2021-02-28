@@ -5,5 +5,8 @@
 import pytest
 
 
+# if __name__ == '__main__':
+#     pytest.main(['-s', '--alluredir=tmp/report'])
+
 if __name__ == '__main__':
-    pytest.main(['-s', '--alluredir=tmp/report'])
+    pytest.main(["-s", "--alluredir=tmp/report"])

@@ -33,7 +33,7 @@ if __name__ == '__main__':
     testIP = 'a.b.c.d'
     #print(isIpVsAddrLegal(testIP))
 
-    ip_list=['', '.', '12.2.', '11.31.137.251', '100.10.0.1000','1.1.1.1','12.23.13','aa.12.1.2','12345678','289043jdhjkbh']
+    ip_list=['', '.', '12.2.', '11.31.137.251', '100.10.0.1000','1.1.1.1','12.23.13','aahaiwen.12.1.2','12345678','289043jdhjkbh']
     for one_str in ip_list:
         if isIpVsAddrLegal(one_str):  #字符串方法
             print('{0} is a legal ip address!'.format(one_str))
