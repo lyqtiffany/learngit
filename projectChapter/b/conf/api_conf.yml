@@ -1,0 +1,16 @@
+OrganizAPI:
+  path: /api/v4/organizations
+  add:
+    { "name": "utuytut",
+      "parent": "131231231", "sort_no": 100, "hidden": false,
+      "space": "123123213123" }
+
+  update:
+    { "$set": { "name": "testccc",
+                "parent": "qpG8DsWSaY8FAwWxN", "sort_no": 100, "hidden": false,
+                "space": "NhnKCEchFReJbgqZM" } }
+
+ContractsAPI：
+  path: ''
+  add: {}
+  update: {}

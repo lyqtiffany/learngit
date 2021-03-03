@@ -1,0 +1,7 @@
+#排除某些文件类型不保存到git仓库中
+__pycache__
+.pytest_cache
+
+*.pyc
+
+tmp

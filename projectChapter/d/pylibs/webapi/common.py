@@ -20,7 +20,7 @@ def login(email,psw):
 class BaseAPI:
     def __init__(self,cookies):
         #假设API配置名等于API类名
-        cls_name='获取当前classname'  # 如何获取当前classname
+        cls_name= self.__class__.__name__  # 如何获取当前classname
 
         self.conf=read_yml('conf/api_conf.yml')[cls_name]
         self.path=self.conf['path']
@@ -43,26 +43,31 @@ class BaseAPI:
         resp = requests.delete(f'{self.url}/{_id}',cookies=self.cookies)
         return resp.json()
 
-    def update(self,_id):
-        payload = self.conf['update']  #修改的请求参数模板
-        resp = requests.put(f'{self.url}/{_id}',json= payload, cookies=self.cookies)
+    def update(self,_id , **kwargs): # 传参形式 name=xxx,age=xxx,...
+        payload = self.conf['update']['$set']  #修改的请求参数模板 取出set里面的部分去修改
+        # 更新spaceid
+        kwargs['space'] = self.spaceid
+        #
+        payload.update(kwargs)
+        data={}
+        data['$set']=payload  #再把set嵌套回去
+        resp = requests.put(f'{self.url}/{_id}',json= data, cookies=self.cookies)
         return resp.json()
-
-    def list_all(self):
-        pass
+    #查询
+    def list_all(self,**kwargs):
+        resp = requests.get(f'{self.url}',params=kwargs ,cookies=self.cookies)
+        return resp.json()['value']  #只需要value对应的列表
 
     #删除所有
     def delete_all(self):
-        pass
+        #列出所有
+        items = self.list_all()
+        #挨个删
+        for item in items:
+            self.delete(item['_id'])
 
 
-#部门API
-class OrganizAPI(BaseAPI):
-    pass
 
-#合同API
-class ContractsAPI(BaseAPI):
-    pass
 
 # if __name__ == '__main__':
 #     c = login('tester44@test.com','devops')

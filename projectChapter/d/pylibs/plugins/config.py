@@ -11,5 +11,5 @@ def read_yml(path):
 
 
 if __name__ == '__main__':
-    res=read_yml('../../conf/api_conf.yml')
-    print(res)
+    res=read_yml('../../casedata/api_testdata.yml')
+    print(res['contracts']['add'])
