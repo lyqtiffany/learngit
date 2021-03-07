@@ -1,0 +1,5 @@
+#过滤一些文件和目录--非必须，但是建议有
+*.pyc
+.pytest_cache
+tmp
+*.png

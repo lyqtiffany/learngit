@@ -1,0 +1,26 @@
+LoginPage:
+  email_input: ['id','email']
+  psw_input: ['id','password']
+  confirm_btn: ['css selector','.MuiButton-containedPrimary']
+
+MainPage:
+  schedule_link: ['css selector','nav.slds-context-bar__secondary>ul>li:nth-last-child(1)']
+  schedules: ['css selector','table.slds-table_resizable-cols>tbody td:nth-child(2)']
+
+SchedulePage:
+  new_btn: ['css selector','.list-action-custom-standard_new>a']
+  summary_input: ['css selector','[data-schema-key="name"]']
+  user_select: ['css selector','.selectUser-box']
+  selected_users: ['css selector','#valueLabel>li>a']
+  selectUser_box: ['css selector','table[id*="DataTables_Table_"]>tbody td:nth-child(2)']
+  confirm_btn: ['id','confirm']
+  save_btn: ['css selector','button[type="submit"]']
+
+
+HeadLinePage:
+  avatar: ['css selector','span.slds-avatar']
+  logout_btn: ['css selector','.slds-m-left_x-small>span>a:nth-child(2)']
+
+
+BasePage:
+  auto_screen: 非元素定位方式

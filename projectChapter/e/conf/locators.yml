@@ -1,0 +1,13 @@
+#页面的名称
+# 输入框--input  按钮--btn
+LoginPage:
+  email_input: ['id','email']
+  psw_input: ['id','password']
+  login_btn: ['css selector','.MuiButton-contained .MuiButton-label']
+
+HomePage:
+  schedule_btn: ['css selector','nav[role="navigation"]>ul>li:nth-last-child(1)']
+
+SchedulePage:
+  new_btn: ['css selector','.list-action-custom-standard_new']
+  summary_input: ['css selector','[name="name"]']
